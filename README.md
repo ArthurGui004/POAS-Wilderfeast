@@ -1,5 +1,7 @@
 # POAS-Wilderfeast
 
+Link do documento: https://docs.google.com/document/d/1Eqm-89UJik5cdkzu9FwyYJ04pDLLsjwYaoT-4Zq8FAg/edit?usp=sharing
+
 # Equipe
 - Arthur Guilherme
 - Guilherme Medeiros
