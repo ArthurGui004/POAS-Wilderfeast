@@ -1,38 +1,42 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-from passlib.context import CryptContext
-from . import models, schemas, database
+from fastapi.staticfiles import StaticFiles
+from contextlib import asynccontextmanager
+from app.database import init_db
+from app.seed import criar_condicoes_padrao
+from app.config import settings
+from app.routers import auth, feral, bestiario
 
-app = FastAPI(title="Wilderfeast Automation API")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await init_db()
+    await criar_condicoes_padrao()
+    yield
+
+
+app = FastAPI(
+    title="Wilderfeast API",
+    description="API do RPG Wilderfeast — sistema Feral (personagens) e Bestiário",
+    version="2.0.0",
+    lifespan=lifespan,
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-models.Base.metadata.create_all(bind=database.engine)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.post("/api/auth/register", response_model=schemas.UserResponse, status_code=status.HTTP_201_CREATED)
-def register(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
-    db_user = db.query(models.User).filter(models.User.email == user.email).first()
-    if db_user:
-        raise HTTPException(status_code=400, detail="Este e-mail de caçador já está registrado.")
-    
-    hashed_password = pwd_context.hash(user.senha)
-    new_user = models.User(nome=user.nome, email=user.email, senha_hash=hashed_password)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    return new_user
+app.include_router(auth.router)
+app.include_router(feral.router)
+app.include_router(bestiario.router)
 
-@app.post("/api/auth/login")
-def login(user: schemas.UserLogin, db: Session = Depends(database.get_db)):
-    db_user = db.query(models.User).filter(models.User.email == user.email).first()
-    if not db_user or not pwd_context.verify(user.senha, db_user.senha_hash):
-        raise HTTPException(status_code=401, detail="Credenciais de caçador inválidas.")
-    
-    return {"message": "Login bem-sucedido!", "userId": db_user.id, "nome": db_user.nome}
+
+@app.get("/")
+async def root():
+    return {"mensagem": "Wilderfeast API — a Caçada começa aqui."}
