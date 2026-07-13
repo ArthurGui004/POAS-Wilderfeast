@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from sqlalchemy import select, desc
 from app.database import get_db
-from backend.app.functions import get_current_user
+from app.functions import get_current_user
 from app.models.user import User
 from app.models.feral import Feral, FeralEstilo, FeralHabilidade, Utensilio, Traco
 from app.models.condicao import Condicao
