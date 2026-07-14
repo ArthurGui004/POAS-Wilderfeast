@@ -10,8 +10,8 @@ class Settings(BaseSettings):
         "DATABASE_URL", 
         "postgresql+asyncpg://postgres:postgres@localhost:5432/wilderfeast"
     )
-    CORS_ORIGINS: list[str] = ["http://localhost:3000"]
     UPLOAD_DIR: str = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static", "uploads")
+    CORS_ORIGINS: list[str] = ["http://localhost:3000"]
 
 
 settings = Settings()
