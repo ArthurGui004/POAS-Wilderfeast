@@ -1,25 +1,23 @@
+from enum import Enum
 from pydantic import BaseModel, EmailStr, ConfigDict
 
 
-class UserCreate(BaseModel):
-    nome: str
-    email: EmailStr
-    senha: str
+class UserBase(BaseModel):
+    nome: str[cite: 3]
+    email: EmailStr[cite: 3]
 
+class UserCreate(UserBase):
+    senha: str[cite: 3]
 
 class UserLogin(BaseModel):
-    email: EmailStr
-    senha: str
+    email: EmailStr[cite: 3]
+    senha: str[cite: 3]
 
-
-class UserOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    id: int
-    nome: str
-    email: EmailStr
-
+class UserOut(UserBase):
+    id: int[cite: 3]
+    model_config = ConfigDict(from_attributes=True)[cite: 3]
 
 class Token(BaseModel):
-    access_token: str
-    token_type: str = "bearer"
-    user: UserOut
+    access_token: str[cite: 3]
+    token_type: str = "bearer"[cite: 3]
+    user: UserOut[cite: 3]

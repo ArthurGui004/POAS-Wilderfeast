@@ -1,94 +1,37 @@
-from pydantic import BaseModel, ConfigDict
-
-
-class EstiloSchema(BaseModel):
-    ligeiro: int
-    poderoso: int
-    preciso: int
-    sagaz: int
-
-    model_config = ConfigDict(from_attributes=True)
-
-
-class HabilidadeSchema(BaseModel):
-    agarrar: int
-    atirar: int
-    curar: int
-    golpear: int
-    armazenar: int
-    atravessar: int
-    estudar: int
-    manufaturar: int
-    assegurar: int
-    chamar: int
-    exibir: int
-    procurar: int
-
-    model_config = ConfigDict(from_attributes=True)
-
-
-class UtensilioSchema(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    id: int | None = None
-    nome: str
-    alcance: str
-    se_quebrado: str = "0"
-    durabilidade_atual: int
-    durabilidade_maxima: int
-    ataques: str | None = None
-
-
-class TracoSchema(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    id: int | None = None
-    nome: str
-    custo: str
-    descricao: str
-    habilidade_relacionada: str
-    estilo_relacionado: str
-
-
 class FeralBase(BaseModel):
-    nome: str
-    titulo: str
-    especialidade: str
-    voce_e: str | None = None
-    tenta_ser: str | None = None
-    feras_familiares: str | None = None
-    prato_tipico: str | None = None
-    tempero_tipico: str | None = None
-    criacao: str
-    iniciacao: str
-    ambicao: str
-    conexao: str
-
+    nome: str[cite: 1]
+    titulo: Optional[str] = None[cite: 1]
+    especialidade: Optional[str] = None[cite: 1]
+    imagem_url: Optional[str] = None[cite: 1]
+    voce_e: Optional[str] = None[cite: 1]
+    tenta_ser: Optional[str] = None[cite: 1]
+    feras_familiares: Optional[str] = None[cite: 1]
+    prato_tipico: Optional[str] = None[cite: 1]
+    tempero_tipico: Optional[str] = None[cite: 1]
+    infancia_criacao: Optional[str] = None
+    iniciacao_como_feral: Optional[str] = None
+    ambicao: Optional[str] = None[cite: 1]
+    conexao: Optional[str] = None[cite: 1]
 
 class FeralCreate(FeralBase):
-    estilo: EstiloSchema
-    habilidade: HabilidadeSchema
-    utensilio: UtensilioSchema
-    tracos: list[TracoSchema]
-    condicoes: list[int] = []
+    usuario_id: int
+    vigor_max: int
+    vigor_atual: int
 
-
-class FeralUpdate(FeralBase):
-    pass
-
+class FeralUpdate(BaseModel):
+    vigor_atual: Optional[int] = None
+    imagem_url: Optional[str] = None
 
 class FeralOut(FeralBase):
-    model_config = ConfigDict(from_attributes=True)
-    id: int
-    player: str
-    imagem_url: str
-    vigor_maximo: int
+    id: int[cite: 1]
+    usuario_id: int
+    vigor_max: int
     vigor_atual: int
-    estilo: EstiloSchema
-    habilidade: HabilidadeSchema
-    utensilios: list[UtensilioSchema]
-    tracos: list[TracoSchema]
+    
+    # Relacionamentos M:N convertidos para lista de atributos
+    estilos: List[AtributoRelacionamento] = []
+    habilidades: List[AtributoRelacionamento] = []
+    tracos: List[TracoOut] = []
+    inventario: List[InventarioFeralOut] = []
 
-
-class CondicaoOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    id: int
-    nome: str
+    model_config = ConfigDict(from_attributes=True)[cite: 1]
