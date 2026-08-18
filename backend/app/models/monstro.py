@@ -1,7 +1,8 @@
+# models/monstro.py
 from sqlalchemy import Column, Integer, String, Text, Boolean, ForeignKey, Table, Enum as SQLEnum
 from sqlalchemy.orm import relationship
-from app.database import Base
-from app.enums import CategoriaMonstro
+from database import Base
+from enums import CategoriaMonstro
 
 monstro_traco_assoc = Table(
     'monstro_traco', Base.metadata,

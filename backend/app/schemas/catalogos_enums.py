@@ -1,29 +1,56 @@
-from enum import Enum
+# schemas/catalogos.py
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
-class CategoriaMonstro(str, Enum):
-    Jovem = 'Jovem'
-    Adulto = 'Adulto'
-    Apex = 'Apex'
 
-# --- DICIONÁRIOS BASE ---
-class DicionarioBase(BaseModel):
+# --- TRAÇO ---
+class TracoBase(BaseModel):
     nome: str
+    descricao: Optional[str] = None
 
-class DicionarioOut(DicionarioBase):
+class TracoCreate(TracoBase):
+    pass
+
+class TracoResponse(TracoBase):
     id: int
     model_config = ConfigDict(from_attributes=True)
 
-class TracoOut(DicionarioOut):
-    descricao: Optional[str] = None
 
-class TecnicaOut(DicionarioOut):
-    descricao: Optional[str] = None
 
-# Relacionamentos com pontuação
-class AtributoRelacionamento(BaseModel):
-    id: int
+# --- ESTILO ---
+class EstiloBase(BaseModel):
     nome: str
-    pontos: int
+
+class EstiloCreate(EstiloBase):
+    pass
+
+class EstiloResponse(EstiloBase):
+    id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
+
+# --- HABILIDADE ---
+class HabilidadeBase(BaseModel):
+    nome: str
+
+class HabilidadeCreate(HabilidadeBase):
+    pass
+
+class HabilidadeResponse(HabilidadeBase):
+    id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
+
+# --- TÉCNICA ---
+class TecnicaBase(BaseModel):
+    nome: str
+    descricao: Optional[str] = None
+
+class TecnicaCreate(TecnicaBase):
+    pass
+
+class TecnicaResponse(TecnicaBase):
+    id: int
     model_config = ConfigDict(from_attributes=True)

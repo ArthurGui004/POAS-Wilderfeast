@@ -7,7 +7,7 @@ from sqlalchemy.orm import selectinload
 from sqlalchemy import select, desc
 from app.database import get_db
 from app.functions import get_current_user
-from app.models.user import User
+from app.models.user import Usuario
 from app.models.feral import Feral, FeralEstilo, FeralHabilidade, Utensilio, Traco
 from app.models.condicao import Condicao
 from app.schemas.feral import FeralOut, CondicaoOut
@@ -52,7 +52,7 @@ async def listar_fichas(db: AsyncSession = Depends(get_db)):
 
 @router.get("/minhas", response_model=list[FeralOut])
 async def minhas_fichas(
-    db: AsyncSession = Depends(get_db), current_user: User = Depends(get_current_user)
+    db: AsyncSession = Depends(get_db), current_user: Usuario = Depends(get_current_user)
 ):
     result = await db.execute(
         select(Feral).options(*FERAL_LOAD_OPTIONS).filter_by(player=current_user.nome)
@@ -92,7 +92,7 @@ async def criar_feral(
     condicoes: str = Form("[]"),  # JSON: lista de ids
     imagem: UploadFile | None = File(None),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Usuario = Depends(get_current_user),
 ):
     estilo_data = json.loads(estilo)
     habilidade_data = json.loads(habilidade)
@@ -160,7 +160,7 @@ async def editar_feral(
     ambicao: str = Form(...),
     conexao: str = Form(...),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Usuario = Depends(get_current_user),
 ):
     result = await db.execute(select(Feral).options(*FERAL_LOAD_OPTIONS).filter_by(id=id_feral))
     feral = result.scalars().unique().first()
@@ -186,7 +186,7 @@ async def editar_feral(
 async def apagar_feral(
     id_feral: int,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Usuario = Depends(get_current_user),
 ):
     feral = await db.get(Feral, id_feral)
     if feral:

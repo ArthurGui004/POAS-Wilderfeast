@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from app.database import Base
+from database import Base
 
 utensilio_tecnica_assoc = Table(
     'utensilio_tecnica', Base.metadata,
