@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
-from enums import CategoriaMonstro 
+from app.enums import CategoriaMonstro 
 
 
 # --- MONSTRO ---

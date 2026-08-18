@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from database import Base
+from app.models.condicao import feral_condicao
+from app.database import Base
 
 # Tabela de Associação N:N pura
 feral_traco_assoc = Table(
@@ -31,6 +32,7 @@ class Feral(Base):
     conexao = Column(Text)
     
     # Relacionamentos
+    condicoes = relationship("Condicao", secondary=feral_condicao, back_populates="ferais")
     usuario = relationship("Usuario", back_populates="ferais")
     estilos = relationship("FeralEstilo", back_populates="feral", cascade="all, delete-orphan")
     habilidades = relationship("FeralHabilidade", back_populates="feral", cascade="all, delete-orphan")

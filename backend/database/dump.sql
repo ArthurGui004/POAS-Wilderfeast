@@ -8,10 +8,6 @@ CREATE TABLE Usuario (
     senha_hash VARCHAR(255) NOT NULL
 );
 
-
-
-
-
 -- 2. DICIONÁRIOS DO JOGO (Catálogos Base)
 CREATE TABLE Traco (
     id SERIAL PRIMARY KEY,

@@ -1,49 +1,55 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func
+from sqlalchemy import select
 from app.database import get_db
-from app.models.user import Usuario
-from app.schemas.user import UserCreate, UserLogin, UserOut, Token
 from app.security import hash_password, verify_password, create_access_token
-from app.functions import get_current_user
+from app.models import Usuario
+from app.schemas import UsuarioCreate, UsuarioResponse
 
-router = APIRouter(prefix="/auth", tags=["autenticação"])
 
+router = APIRouter(prefix="/auth", tags=["Autenticação"])
 
-@router.post("/register", response_model=Token, status_code=status.HTTP_201_CREATED)
-async def register(payload: UserCreate, db: AsyncSession = Depends(get_db)):
-    existente = (await db.execute(select(Usuario).filter_by(email=payload.email))).scalar()
-    if existente:
-        raise HTTPException(status_code=403, detail="ERRO 403! Este usuário já existe.")
-
-    user = Usuario(nome=payload.nome, email=payload.email, senha_hash=hash_password(payload.senha))
-    db.add(user)
+@router.post("/registro", response_model=UsuarioResponse, status_code=status.HTTP_201_CREATED)
+async def registrar_usuario(usuario: UsuarioCreate, db: AsyncSession = Depends(get_db)):
+    query = select(Usuario).where(Usuario.email == usuario.email)
+    resultado = await db.execute(query)
+    if resultado.scalar_one_or_none():
+        raise HTTPException(status_code=400, detail="E-mail já cadastrado.")
+    
+    novo_usuario = Usuario(
+        nome=usuario.nome,
+        email=usuario.email,
+        senha_hash=hash_password(usuario.senha)
+    )
+    db.add(novo_usuario)
     await db.commit()
-    await db.refresh(user)
+    await db.refresh(novo_usuario)
+    return novo_usuario
 
-    token = create_access_token({"sub": str(user.id)})
-    return Token(access_token=token, user=UserOut.model_validate(user))
+@router.post("/login")
+async def login(
+    form_data: OAuth2PasswordRequestForm = Depends(), 
+    db: AsyncSession = Depends(get_db)
+):
+    # O OAuth2PasswordRequestForm armazena o e-mail digitado no atributo 'username'
+    query = select(Usuario).where(Usuario.email == form_data.username)
+    resultado = await db.execute(query)
+    usuario = resultado.scalar_one_or_none()
+    
+    # Valida se o usuário existe e se a senha está correta
+    if not usuario or not verify_password(form_data.password, usuario.senha_hash):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, 
+            detail="Credenciais inválidas.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    
+    # Gera o token de acesso
+    access_token = create_access_token(data={"sub": str(usuario.id)})
+    
+    return {"access_token": access_token, "token_type": "bearer", "usuario_id": usuario.id}
 
-
-@router.post("/login", response_model=Token)
-async def login(payload: UserLogin, db: AsyncSession = Depends(get_db)):
-    user = (await db.execute(select(Usuario).filter_by(email=payload.email))).scalar()
-    if not user:
-        raise HTTPException(status_code=404, detail="ERRO 404! Usuário não cadastrado")
-    if not verify_password(payload.senha, user.senha_hash):
-        raise HTTPException(status_code=401, detail="ERRO 401! Verifique sua senha e tente novamente")
-
-    token = create_access_token({"sub": str(user.id)})
-    return Token(access_token=token, user=UserOut.model_validate(user))
-
-
-@router.get("/me", response_model=UserOut)
-async def me(current_user: Usuario = Depends(get_current_user)):
-    return current_user
-
-@router.get("/usuarios/count", response_model=int)
-async def contar_jogadores(db: AsyncSession = Depends(get_db)):
-    """Retorna o número total de usuários cadastrados no banco."""
-    result = await db.execute(select(func.count(Usuario.id)))
-    total = result.scalar()
-    return total or 0
+@router.post("/logout")
+async def logout():
+    return {"message": "Logout efetuado com sucesso."}
