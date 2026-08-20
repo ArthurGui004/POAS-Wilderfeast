@@ -9,7 +9,6 @@ from app.routers import auth_router, feral_router, monstro_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await init_db()
     await criar_condicoes_padrao()
     yield
 
