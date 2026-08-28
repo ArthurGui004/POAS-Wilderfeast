@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.database import init_db
 from app.config import settings
-from app.seed import criar_condicoes_padrao
+from app.seeds.seed_condicao import criar_condicoes_padrao
 from app.routers import auth_router, feral_router, monstro_router
 
 @asynccontextmanager
