@@ -1,46 +1,32 @@
 """
-Etapa 1 do pipeline (ÚNICA etapa de IA): pega o PDF e, com UM SÓ modelo
-rodando local, faz OCR e já devolve o conteúdo estruturado em JSON.
-
-Modelo: Qwen/Qwen2-VL-2B-Instruct
-    - É um modelo multimodal (lê imagem + segue instrução), diferente de
-      um modelo "só de OCR": ele já entende a pergunta "extraia os campos
-      X, Y, Z e responda em JSON" olhando direto pra imagem da página.
-    - 2B parâmetros = a opção mais leve dessa família. Roda em CPU (lento),
-      mas sem exigir GPU.
-    - AVISO: em CPU, gerar a resposta pode levar minutos por monstro.
-      Se tiver GPU (mesmo modesta), o ganho de velocidade é grande — nesse
-      caso troque MODEL_NAME para "Qwen/Qwen2-VL-7B-Instruct" (mais precisa).
-    - AVISO 2: por ser um modelo generalista (não especializado em OCR),
-      a precisão de acentuação em português pode variar. Sempre revise o
-      JSON gerado antes de rodar a etapa de seed no banco.
-
-Como funciona:
-    1. Todas as páginas do PDF viram imagens (via PyMuPDF).
-    2. As imagens (podem ser várias, se o monstro ocupar mais de uma
-       página) são enviadas numa ÚNICA conversa com o modelo, junto com
-       a instrução de schema.
-    3. O modelo responde diretamente em JSON — sem etapa de texto bruto
-       intermediária.
-
-Primeira execução baixa o modelo (~4-5GB) e guarda em cache local
-(~/.cache/huggingface) — só baixa uma vez.
+Percorre todos os PDFs de uma pasta e, usando UM modelo de IA rodando
+local (Qwen2-VL-2B-Instruct), extrai o conteúdo de cada um já em JSON
+estruturado — sem etapa de texto intermediário.
 
 Uso:
-    python 1_ocr_extract.py docs/urso-corvo.pdf
-    -> gera seeds/monstros/urso-corvo.json
+    python ocr.py                      -> processa a pasta padrão (docs/)
+    python ocr.py caminho/da/pasta     -> processa uma pasta específica
+    python ocr.py --forcar             -> reprocessa mesmo os já feitos
+
+Saída:
+    Um arquivo <nome_do_pdf>.json em seeds/monstros/ para cada PDF.
+    Um .manifest.json na própria pasta de PDFs, pra não reprocessar
+    o que já foi feito (a menos que use --forcar).
 """
 
 import json
+import os
 import sys
 from pathlib import Path
 
-import fitz  # PyMuPDF
+import pymupdf  # PyMuPDF
 import torch
+from huggingface_hub import login
 from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
 from qwen_vl_utils import process_vision_info
 
 MODEL_NAME = "Qwen/Qwen2-VL-2B-Instruct"
+PASTA_PADRAO = Path("docs")
 SEEDS_DIR = Path("seeds/monstros")
 
 INSTRUCAO = """\
@@ -54,11 +40,12 @@ imagens: se um campo não aparecer, use null (para string) ou lista vazia \
 Schema exato a seguir:
 {
   "nome": string,
-  "categoria": string,
-  "historia": string
   "dieta": string | null,
-  "alvos": string | null,
+  "comportamento": string | null,
+  "descricao": string | null,
   "habitats": [string],
+  "tracos": [string],
+  "habilidades": [string]
 }
 """
 
@@ -66,28 +53,44 @@ _model = None
 _processor = None
 
 
+def autenticar_hf() -> str | None:
+    """Lê o token do Hugging Face da variável de ambiente HF_TOKEN e
+    autentica. Se não existir, segue sem token (com limite de taxa menor)."""
+    token = "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"
+    if token:
+        login(token=token)
+        print("[IA] Autenticado no Hugging Face com HF_TOKEN.")
+    else:
+        print("[IA] HF_TOKEN não encontrado no ambiente — baixando sem autenticação.")
+    return token
+
+
 def carregar_modelo():
+    """Carrega o modelo uma única vez e reaproveita entre todos os PDFs."""
     global _model, _processor
     if _model is None:
+        token = autenticar_hf()
         print(f"[IA] Carregando modelo '{MODEL_NAME}' (pode demorar na primeira vez)...")
-        _processor = AutoProcessor.from_pretrained(MODEL_NAME)
+        _processor = AutoProcessor.from_pretrained(MODEL_NAME, token=token)
         _model = Qwen2VLForConditionalGeneration.from_pretrained(
             MODEL_NAME,
-            torch_dtype=torch.float32,  # float32 é mais lento mas mais compatível com CPU
+            torch_dtype=torch.float32,
             device_map="cpu",
+            token=token,
         )
         _model.eval()
+        print("[IA] Modelo carregado.")
     return _model, _processor
 
 
-def pdf_para_imagens(pdf_path: Path, saida_dir: Path, dpi: int = 200) -> list[Path]:
-    doc = fitz.open(pdf_path)
+def pdf_para_imagens(pdf_path: Path, temp_dir: Path, dpi: int = 200) -> list[Path]:
+    doc = pymupdf.open(pdf_path)
     caminhos = []
     zoom = dpi / 72
-    matriz = fitz.Matrix(zoom, zoom)
+    matriz = pymupdf.Matrix(zoom, zoom)
     for i, pagina in enumerate(doc):
         pix = pagina.get_pixmap(matrix=matriz)
-        caminho_img = saida_dir / f"{pdf_path.stem}_pagina_{i+1:03d}.png"
+        caminho_img = temp_dir / f"{pdf_path.stem}_pagina_{i+1:03d}.png"
         pix.save(str(caminho_img))
         caminhos.append(caminho_img)
     doc.close()
@@ -99,7 +102,6 @@ def extrair_json(imagens: list[Path]) -> dict:
 
     conteudo = [{"type": "image", "image": str(img)} for img in imagens]
     conteudo.append({"type": "text", "text": INSTRUCAO})
-
     mensagens = [{"role": "user", "content": conteudo}]
 
     texto_prompt = processor.apply_chat_template(mensagens, tokenize=False, add_generation_prompt=True)
@@ -112,7 +114,6 @@ def extrair_json(imagens: list[Path]) -> dict:
         return_tensors="pt",
     )
 
-    print("[IA] Gerando resposta (pode levar alguns minutos em CPU)...")
     with torch.no_grad():
         saida_ids = model.generate(**entradas, max_new_tokens=1500)
 
@@ -127,18 +128,13 @@ def extrair_json(imagens: list[Path]) -> dict:
     return json.loads(resposta)
 
 
-def main() -> None:
-    if len(sys.argv) != 2:
-        print("Uso: python 1_ocr_extract.py <caminho_do_pdf>")
-        sys.exit(1)
-
-    pdf_path = Path(sys.argv[1])
+def processar_pdf(pdf_path: Path) -> Path:
     temp_dir = pdf_path.parent / ".processado"
     temp_dir.mkdir(exist_ok=True)
 
     print(f"[IA] Renderizando páginas de '{pdf_path.name}'...")
     imagens = pdf_para_imagens(pdf_path, temp_dir)
-    print(f"[IA] {len(imagens)} página(s) encontradas.")
+    print(f"[IA] {len(imagens)} página(s). Gerando JSON (pode levar minutos em CPU)...")
 
     try:
         dados = extrair_json(imagens)
@@ -149,9 +145,55 @@ def main() -> None:
     SEEDS_DIR.mkdir(parents=True, exist_ok=True)
     saida = SEEDS_DIR / f"{pdf_path.stem}.json"
     saida.write_text(json.dumps(dados, ensure_ascii=False, indent=2), encoding="utf-8")
+    return saida
 
-    print(f"[IA] JSON gerado -> {saida}")
-    print("Revise o arquivo antes de rodar o seed — confira nomes de traços e acentuação.")
+
+def carregar_manifest(manifest_path: Path) -> dict:
+    if manifest_path.exists():
+        return json.loads(manifest_path.read_text(encoding="utf-8"))
+    return {}
+
+
+def salvar_manifest(manifest_path: Path, manifest: dict) -> None:
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def main() -> None:
+    args = [a for a in sys.argv[1:] if a != "--forcar"]
+    forcar = "--forcar" in sys.argv
+    pasta = Path(args[0]) if args else PASTA_PADRAO
+
+    if not pasta.exists():
+        print(f"Pasta '{pasta}' não encontrada.")
+        sys.exit(1)
+
+    pdfs = sorted(pasta.glob("*.pdf"))
+    if not pdfs:
+        print(f"Nenhum PDF encontrado em '{pasta}'.")
+        return
+
+    manifest_path = pasta / ".manifest.json"
+    manifest = carregar_manifest(manifest_path)
+
+    print(f"[IA] {len(pdfs)} PDF(s) encontrado(s) em '{pasta}'.")
+
+    for pdf in pdfs:
+        if not forcar and manifest.get(pdf.name) == "concluido":
+            print(f"[SKIP] '{pdf.name}' já processado. Use --forcar pra refazer.")
+            continue
+
+        print(f"\n=== Processando {pdf.name} ===")
+        try:
+            saida = processar_pdf(pdf)
+            print(f"[OK] JSON gerado -> {saida}")
+            manifest[pdf.name] = "concluido"
+        except Exception as e:
+            print(f"[ERRO] Falha ao processar '{pdf.name}': {e}")
+            manifest[pdf.name] = "erro"
+        finally:
+            salvar_manifest(manifest_path, manifest)
+
+    print("\nRevise os JSONs em seeds/monstros/ antes de rodar o seed no banco.")
 
 
 if __name__ == "__main__":
