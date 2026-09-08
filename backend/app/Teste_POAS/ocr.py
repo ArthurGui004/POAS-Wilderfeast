@@ -88,7 +88,7 @@ _processor = None
 def autenticar_hf() -> str | None:
     """Lê o token do Hugging Face da variável de ambiente HF_TOKEN e
     autentica. Se não existir, segue sem token (com limite de taxa menor)."""
-    token = "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"
+    token = "token"
     if token:
         login(token=token)
         print("[IA] Autenticado no Hugging Face com HF_TOKEN.")
