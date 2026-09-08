@@ -79,6 +79,8 @@ Schema exato a seguir:
 }
 """
 
+
+torch.set_num_threads(os.cpu_count())
 _model = None
 _processor = None
 
@@ -86,7 +88,7 @@ _processor = None
 def autenticar_hf() -> str | None:
     """Lê o token do Hugging Face da variável de ambiente HF_TOKEN e
     autentica. Se não existir, segue sem token (com limite de taxa menor)."""
-    token = "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"
+    token = "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"
     if token:
         login(token=token)
         print("[IA] Autenticado no Hugging Face com HF_TOKEN.")
@@ -104,7 +106,7 @@ def carregar_modelo():
         _processor = AutoProcessor.from_pretrained(MODEL_NAME, token=token)
         _model = Qwen2VLForConditionalGeneration.from_pretrained(
             MODEL_NAME,
-            torch_dtype=torch.float32,
+            torch_dtype=torch.bfloat16,
             device_map="cpu",
             token=token,
         )
@@ -145,7 +147,7 @@ def extrair_json(imagens: list[Path]) -> dict:
     )
 
     with torch.no_grad():
-        saida_ids = model.generate(**entradas, max_new_tokens=1500)
+        saida_ids = model.generate(**entradas, max_new_tokens=800)
 
     saida_ids_gerados = [
         ids[len(entrada_ids):] for entrada_ids, ids in zip(entradas.input_ids, saida_ids)
