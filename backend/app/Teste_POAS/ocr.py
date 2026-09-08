@@ -30,22 +30,52 @@ PASTA_PADRAO = Path("docs")
 SEEDS_DIR = Path("seeds/monstros")
 
 INSTRUCAO = """\
-As imagens a seguir são páginas de um livro de regras de RPG (sistema \
-Wilderfeast), descrevendo UM monstro. Leia o conteúdo das imagens e \
-responda APENAS com um objeto JSON válido, sem markdown, sem comentário, \
-sem texto antes ou depois. Não invente informação que não está nas \
-imagens: se um campo não aparecer, use null (para string) ou lista vazia \
-(para listas).
-
+A imagem a seguir é uma ficha de monstro do RPG Wilderfeast, no formato \
+de card com colunas e seções fixas (Estilos, Habilidades, Traços, \
+Partes, Comportamento, Dieta, Hábitat). Leia TODA a ficha, respeitando \
+a ordem visual das colunas e seções, e responda APENAS com um objeto \
+JSON válido, sem markdown, sem comentário, sem texto antes ou depois.
+ 
+Regras importantes:
+- Não invente informação que não está na imagem: campo não encontrado
+  vira null (string/número) ou lista vazia (lista).
+- Em TRAÇOS e PARTES, capture o texto completo do efeito como está
+  escrito no card, não resuma.
+- "Traços" e "Traços Adicionais" são listas separadas — não misture.
+- Em PARTES, "se_quebrado" é o texto que aparece após "Se Quebrado(a):"
+  dentro daquela parte, se existir.
+- "alcance" de uma Parte só existe se o card mostrar algo como
+  "Alcance: N" perto do nome da Parte.
+- Não crie nenhum campo adicional no schema
+ 
 Schema exato a seguir:
 {
   "nome": string,
-  "dieta": string | null,
+  "estilos": {
+    "ligeiro": number,
+    "poderoso": number,
+    "preciso": number,
+    "sagaz": number
+  },
+  "habilidades": [
+    { "nome": string, "valor": number }
+  ],
+  "tracos": [
+    { "nome": string, "descricao": string }
+  ],
+  "tracos_adicionais": [string],
+  "partes": [
+    {
+      "nome": string,
+      "durabilidade": number | null,
+      "alcance": number | null,
+      "passiva": string | null,
+      "se_quebrado": string | null
+    }
+  ],
   "comportamento": string | null,
-  "descricao": string | null,
-  "habitats": [string],
-  "tracos": [string],
-  "habilidades": [string]
+  "dieta": string | null,
+  "habitat": [string]
 }
 """
 
