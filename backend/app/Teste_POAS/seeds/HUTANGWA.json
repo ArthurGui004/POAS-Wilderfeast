@@ -1,0 +1,51 @@
+{
+  "nome": "HUTANGWA",
+  "estilos": {
+    "ligeiro": 23,
+    "poderoso": 0,
+    "preciso": 20,
+    "sagaz": 3
+  },
+  "habilidades": [],
+  "tracos": [],
+  "tracos_adicionais": [
+    "Se você se Mover em direção a uma criatura, ganhe Vantagem ao . PERSEGUIÇÃO DO PREDADOR(Passiva)",
+    "Ataca-lo até o final do seu turno.",
+    ".ExpostaPRECISOUma criatura a sua escolha fica . SENTIDOS AGUÇADOS(Custo: 1 Sucesso )",
+    "PROFESSOR",
+    "Além disso, caso se Mova enquanto voa, você pode se Mover 2 Pernadas  Você pode voar. . VOAR 3(Passiva)",
+    "ATRAVESSAR enquanto estiver voando.em vez de 1. Enfim, você tem Vantagem em todos seus",
+    "LIGEIROVocê pode se Mover sem gastar uma Ação.. VELOCIDADE(Custo: 1 Sucesso )"
+  ],
+  "partes": [
+    {
+      "nome": "ASAS",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde .VOAR 3"
+    },
+    {
+      "nome": "GOLPEAR PRECISO BICO",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Essa causa metade do Dano."
+    },
+    {
+      "nome": "GOLPEAR LIGEIRO GARRAS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Presa ela fica.",
+      "se_quebrado": "Essa causa metade do Dano."
+    }
+  ],
+  "comportamento": "PresaExpostaFeridaSe nenhuma criatura estiver  ou , mire a criatura que estiver , já que você é um assassino eficiente e brutal. GARRASBICO Seu instinto é capturar uma criatura com suas e alçar voo com , depois estripá-la com seus . Você é VELOCIDADE Ferido, flexível e inteligente, então, se alguma coisa estiver dando errado com seu plano, você se adapta rapidamente. Se ficar fuja. Para representar sua tendência incendiária, use esta regra opcional: se for inverno, a área para a qual você recuou recebe os efeitos Incêndiodo Traço  de Towon Seha. Você tem experiência suficiente com fogo para passar por ele com segurança, mas quem o seguir não estará tão preparado.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres",
+    "Praia (Mesalta)",
+    "Arvoredo(Asaginga, Wooda Selvagem)",
+    "monstros voadores"
+  ]
+}

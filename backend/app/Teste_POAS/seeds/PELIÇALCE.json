@@ -1,0 +1,70 @@
+{
+  "nome": "PELIÇALCE",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 0,
+    "preciso": 1,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CLARÃO",
+      "descricao": "Custo: 2 Ações) Faça um EXIBIR LIGEIRO. Se passar, a criatura a sua escolha fica Atordoada e Confusa [A]."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "Custo: 1 Ação) Escolha uma criatura a até 3 Pernadas. Você se Move a até 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu (Isso não conta como gasto de Vigor)."
+    },
+    {
+      "nome": "VELOCIDADE",
+      "descricao": "Custo: 1 Sucesso LIGEIRO) Você pode usar Movimento sem gastar uma Ação."
+    }
+  ],
+  "tracos_adicionais": [
+    "FERMENTADOR"
+  ],
+  "partes": [
+    {
+      "nome": "CHIFRES",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Se você usar INVESTIDA, dobre o Dano causado à outra criatura, mas não a si mesmo. Além disso, você tem Vantagem ao atacar até o fim do seu turno.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano. Você perde VELOCIDADE."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire numa criatura que estiver a 3 Pernadas de você, já que essa é a distância que um peliçalce rival manteria se quisesse lutar contra você. Seu instinto é usar CLARÃO e VELOCIDADE juntos sempre que possível, desorientando seus inimigos e mantendo-se longe do seu alcance antes de usar INVESTIDA para encurtar a distância e acertar seu alvo. Você raramente usa suas PERNAS para atacar, mas um chute Quebra-partes no momento certo pode devastar seus inimigos.",
+  "dieta": null,
+  "habitat": [
+    "Folhagem (videiraçúcar), sementes e grãos (Arroz Arbóreo)",
+    "Arvoredo (Montes Nakwon, Musicampo, Bosque das Testemunhas)"
+  ]
+}

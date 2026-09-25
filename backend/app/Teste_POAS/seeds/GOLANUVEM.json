@@ -1,0 +1,85 @@
+{
+  "nome": "GOLANUVEM",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 3,
+    "preciso": 1,
+    "sagaz": 0
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "ASSEGURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "CHAMAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "CURAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "EXIBIR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "AMEAÇAR",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Uma criatura à sua escolha fica Amedrontada."
+    },
+    {
+      "nome": "CABEÇADA",
+      "descricao": "(Custo: 1 Sucesso) Depois de atacar uma criatura, empurre-a para 1 Pernada de você. Se a criatura estiver escalando ou voando, ela cai no Chão."
+    },
+    {
+      "nome": "EXPANDIR",
+      "descricao": "(Custo: 1 Ação) Você se torna Expandido."
+    },
+    {
+      "nome": "FOTOSSÍNTESE",
+      "descricao": "(Custo: 3 Ações) Se você tiver acesso ao Céu, recupere seu Vigor ao máximo."
+    },
+    {
+      "nome": "ROBUSTO",
+      "descricao": "(Passiva) Nada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja Preso."
+    }
+  ],
+  "tracos_adicionais": [
+    "DEFENSOR DO REBANHO",
+    "FERMENTADOR",
+    "MIGRADOR"
+  ],
+  "partes": [
+    {
+      "nome": "GOLA",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": "Você só pode usar FOTOSSÍNTESE enquanto estiver Expandido.",
+      "se_quebrado": "Você perde acesso a EXPANDIR e FOTOSSÍNTESE e não pode mais se tornar Expandido."
+    },
+    {
+      "nome": "PÉS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Se Atacar com essa PARTE e acertar, você também causa Dano [A] a todas as criaturas da sua escolha que estiverem a 0 Pernada do seu alvo.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PESCOÇO",
+      "durabilidade": 20,
+      "alcance": 2,
+      "passiva": "Se usar CABEÇADA contra uma criatura que estiver escalando ou voando, em vez de empurrar, puxe-a para 1 Pernada mais próxima de você.",
+      "se_quebrado": "Alcance: 2 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura que esteja escalando ou voando, já que você não gosta que predadores ou parasitas cheguem perto da sua cabeça. Seu instinto é esmagar seus rivais contra o chão com seu PESCOÇO e então Preparar para fazer isso novamente. EXPANDIR ajuda a alcançar alvos distantes, mas você não mudará seu percurso só para fazer isso ou FOTOSSÍNTESE.  Da mesma forma, seus PÉS não são suas armas preferidas, mas você pode ficar tentado a usá-los se muitas criaturas estiverem no mesmo lugar para serem esmagadas. Guarde CABEÇADA até o final da rodada, quando é possível derrubar seu alvo antes de mudar o foco para outro.",
+  "dieta": "Folhagem",
+  "habitat": [
+    "Deserto (Vale dos Açougueiros, Ovomonte)"
+  ]
+}

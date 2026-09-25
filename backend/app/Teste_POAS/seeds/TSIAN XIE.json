@@ -1,0 +1,67 @@
+{
+  "nome": "TSIAN XIE",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 3,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATIRAR",
+      "valor": 3
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CHEIRO DE SANGUE.",
+      "descricao": "(Passiva) Você tem Vantagem em todos os Testes durante a primeira rodada da Caçada se o outro lado tiver uma criatura Ferida."
+    }
+  ],
+  "tracos_adicionais": [
+    "SOPRO DE FOGO. (Custo: 2 Ações) Faça um ATIRAR PODEROSO contra uma criatura a até 2 Pernadas de distância. Se acertar, você causa [A] Dano à Parte e a PARTE que você alvejou fica Queimada. FLUTUANTE",
+    "VOAR. (Passiva) Você pode voar."
+  ],
+  "partes": [
+    {
+      "nome": "SINO",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Dobre o Dano causado por seu SOPRO DE FOGO a criaturas Presas por seus TENTÁCULOS.",
+      "se_quebrado": "Você perde SOPRO DE FOGO."
+    },
+    {
+      "nome": "TENTÁCULOS",
+      "durabilidade": 20,
+      "alcance": 2,
+      "passiva": "Se você causar Dano a uma criatura com esta PARTE, aquela criatura fica Presa.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "TSIAN WON",
+      "durabilidade": 30,
+      "alcance": null,
+      "passiva": "No início de cada rodada, todas as PARTES de todas as Criaturas sem VOAR ficam Queimadas.",
+      "se_quebrado": "Harmonia é reduzida em 1."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, escolha como alvo uma criatura com uma PARTE Queimada, uma vez que você é atraído pelo cheiro de carne queimando. Seu instinto é flutuar para posicionar-se acima de sua presa antes de liberar toda a força de seu SOPRO DE FOGO contra o alvo abaixo de você. Agarrar seu alvo com seus TENTÁCULOS deixa isso ainda mais fácil, mas priorize usar seu SOPRO DE FOGO se você não tiver Ações suficientes para os dois. Sua Parte TSIAN WON não é parte do seu corpo. Em vez disso, ela representa os corais parecidos com magma sobre os quais você normalmente pode ser encontrado. Embora mais rasteiras do que as colônias de pólipos de seus primos, os shulu wons, os tsian wons ainda são altos o bastante para que criaturas possam escalá‑las para alcançar você no Céu.",
+  "dieta": "GENERALISTA",
+  "habitat": [
+    "Monstros terrestres (Cauda de Rakuzar, Wooda Selvagem)",
+    "Deserto (Dunas Estrondosas, Maratsia, Mirante Memorial)",
+    "Monstros voadores (Votra)"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "nome": "MYOTAK",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 2,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 1
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 3
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 1
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CABEÇADA",
+      "descricao": "(Custo:  1  Sucesso)  Depois  que  Atacar  uma  criatura,  empurre-a  para  1  Pernada  de  você.  Se  a criatura estiver escalando ou voando, ela cai no Chão."
+    },
+    {
+      "nome": "ESCALAR 2",
+      "descricao": "(Passiva)  Você  pode  escalar  sem  Desvantagem.  Além  disso,  ao  se  Mover  enquanto  estiver escalando, Mova-se 2 Pernadas em vez de 1."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "(Custo: 1 Ação) Escolha uma criatura a até 3 Pernadas. Você move a até 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu (isso não conta como gasto de Vigor)."
+    },
+    {
+      "nome": "VELOCIDADE",
+      "descricao": "(Custo: 1 Sucesso LIGEIRO ) Você pode Mover sem gastar uma Ação."
+    },
+    {
+      "nome": "REFLEXOS NATURAIS",
+      "descricao": "(Passiva) Você reduz o Dano causado por GOLPEAR LIGEIRO e ATIRAR LIGEIRO."
+    }
+  ],
+  "tracos_adicionais": [
+    "BANHA",
+    "DEFENSOR DO REBANHO",
+    "ESTASE",
+    "FERMENTADOR",
+    "DURABILIDADE"
+  ],
+  "partes": [
+    {
+      "nome": "CASCOS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano. Você perde 1 nível de ESCALAR."
+    },
+    {
+      "nome": "CHIFRES",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Você tem Vantagem para Atacar com essa PARTE após fazer uma INVESTIDA.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire a última criatura que o empurrou ou puxou, já que você enxerga disputas por posição como um desafio. Seu instinto é se aproveitar do terreno elevado. Quando está seguro em um terreno que você pode escalar, como falésias, use sua mobilidade superior para evitar ser cercado. Ataque com seus CASCOS durante seus turnos curtos, dançando ao redor de seus inimigos com VELOCIDADE, e então ataque com seus CHIFRES durante seu turno completo, perto do final da rodada. Afinal, é difícil manter a pressão sobre seu alvo depois de jogá-lo em outro terreno.",
+  "dieta": null,
+  "habitat": [
+    "Folhagem (Luminusgo), frutas (Vagem de metro Lakkarakku), raízes (Raiz Coxim)",
+    "Montanha (Fundão, Trilha das Lamentações, Monte Zayyat, Cataratas do Yhayhe)"
+  ]
+}

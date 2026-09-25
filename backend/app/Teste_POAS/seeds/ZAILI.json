@@ -1,0 +1,84 @@
+{
+  "nome": "ZAILI",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 1
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 3
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "AMEAÇAR",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Uma criatura à sua escolha fica Amedrontada."
+    },
+    {
+      "nome": "CHOQUE ELÉTRICO",
+      "descricao": "(Custo: 2 Ações) Faça um CHAMAR LIGEIRO. Se passar, cada criatura a até 1 Pernada sofre [A] de Dano e fica Atordoada."
+    },
+    {
+      "nome": "ECOLOCALIZAÇÃO",
+      "descricao": "(Custo: 1 Sucesso em um CHAMAR) Uma criatura à sua escolha fica Exposta."
+    },
+    {
+      "nome": "BRINCALHÃO",
+      "descricao": ""
+    },
+    {
+      "nome": "NADAR 2",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem. Além disso, caso se Mova enquanto nada, você pode se Mover até 2 Pernadas em vez de 1."
+    }
+  ],
+  "tracos_adicionais": [
+    "BANHA"
+  ],
+  "partes": [
+    {
+      "nome": "GARGANTA",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde ECOLOCALIZAÇÃO e CHOQUE ELÉTRICO custa 1 Ação adicional."
+    },
+    {
+      "nome": "NADADEIRAS",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Custa 1 Ação adicional para se Mover no Chão."
+    },
+    {
+      "nome": "PRESAS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Se realizar um GOLPEAR com esta PARTE e acertar, você pode usar CHOQUE ELÉTRICO imediatamente sem gastar ações. Se o fizer, só a criatura atingida por suas PRESAS fica Atordoada.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura que esteja Atordoada, já que você reage rapidamente a qualquer abertura causada por seu CHOQUE ELÉTRICO. Seu instinto é não ter sutileza. Você é barulhento, direto e agressivo quando se sente ameaçado, e há uma simplicidade bela na sua combinação de TRAÇOS e PARTES.",
+  "dieta": "Monstros aquáticos (Goby Guelrabença, Lulesguicho, Ostra Real)",
+  "habitat": [
+    "Praias (Baía de Aso, Ilha Berço, Planícies Ensaboadas)"
+  ]
+}

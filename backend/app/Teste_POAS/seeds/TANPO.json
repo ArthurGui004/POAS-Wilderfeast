@@ -1,0 +1,73 @@
+{
+  "nome": "TANPO",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "ARMAZENAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "CURAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "MANUFATURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "PROCURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ARMADURA NATURAL",
+      "descricao": "(Passiva) Você diminui à metade o Dano que sofre de GOLPEAR PODEROSO e de ATIRAR PODEROSO."
+    },
+    {
+      "nome": "BANHA 2",
+      "descricao": "(Passiva) Seu Vigor máximo aumenta em 10."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "(Custo: 1 Ação) Escolha uma criatura a até 3 Pernadas. Você se Move a 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu. (Isto não conta como gastar Vigor.)"
+    }
+  ],
+  "tracos_adicionais": [
+    "CHAFURDAR",
+    "FERMENTADOR"
+  ],
+  "partes": [
+    {
+      "nome": "LAMA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Você não pode ficar Exposto. Esta PARTE sofre o dobro de Dano se estiver Queimada ou se você estiver Debaixo d’água.",
+      "se_quebrado": "Você perde ARMADURA NATURAL, mas recebe +1 LIGEIRO."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Se sua LAMA não estiver quebrada, reduza à metade qualquer Dano à Parte sofrido por esta PARTE.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PRESAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo a última criatura a fazer um EXIBIR, uma vez que sua visão não é muito boa e e tem dificuldade de perceber criaturas que não estejam chamando atenção. Seu instinto é fazer uma INVESTIDA contra seu alvo e esmagá-lo com suas PERNAS. Sua solidez permite que você tenha uma estratégia relativamente simples em combate, e o ônus cabe aos seus oponentes para desvendarem como atravessar suas defesas. Se estiver Ferido, considere recuar para uma Área diferente, onde possa CHAFURDAR e recuperar sua LAMA para a Durabilidade máxima — tecnicamente, não há regras para isso, mas é um caso em que, como a Guia, você pode improvisar efeitos mecânicos segundo o que seja narrativamente apropriado.",
+  "dieta": null,
+  "habitat": [
+    "Folhagem (Brotos das Cinzas, Casca de Espiralárvore), frutos (Vagem de metro Lakkarakku), fungos, minerais (Argilafurda)",
+    "Arvoredo (Terrenos Chafurdantes, Bosque das Testemunhas), Montanha (Trilha das Lamentações, Cataratas do Yhayhe)"
+  ]
+}

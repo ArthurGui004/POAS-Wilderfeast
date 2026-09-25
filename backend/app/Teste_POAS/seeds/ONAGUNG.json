@@ -1,0 +1,61 @@
+{
+  "nome": "ONAGUNG",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 1,
+    "preciso": 1,
+    "sagaz": 3
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "ARMAZENAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ATIRAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "CURAR",
+      "descricao": "+3"
+    },
+    {
+      "nome": "EXIBIR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "PROCURAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "DESORIENTAR",
+      "descricao": "(Passiva) Criaturas que o Atacam (acertando ou não) ficam Confusas."
+    },
+    {
+      "nome": "ESCORREGADIO",
+      "descricao": "(Passiva) Você não pode ser Preso."
+    }
+  ],
+  "tracos_adicionais": [
+    "CARNICEIRO",
+    "DIGESTÃO LENTA",
+    "ENGOLIR INTEIRO",
+    "DURABILIDADE"
+  ],
+  "partes": [
+    {
+      "nome": "GELECA",
+      "durabilidade": null,
+      "alcance": 2,
+      "passiva": "Se você ATIRAR com essa PARTE, uma das suas outras PARTES perde 1d6 de Durabilidade.",
+      "se_quebrado": "Você morre."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura que estiver Queimada, ou tenha um Traço ou Técnica que pode infligir QUEIMADO, já que calor chama a sua atenção. Seu instinto é imitar o(s) monstro(s) que está digerindo, até que não tenha outra opção a não ser disparar seus ossos como se fossem balas. Caçadas contra você costumam variar, sempre dependendo de sua última refeição, mas podem se tornar especialmente bizarras se você começar a misturar e combinar as PARTES e TRAÇOS de vários monstros. As regras para monstros diferentes nem sempre funcionam conforme estão escritas, então seja flexível e siga o que faz sentido no contexto.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres, carniça (Detritos)",
+    "Praia (Celário do Gigante), Montanha"
+  ]
+}

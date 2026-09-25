@@ -1,0 +1,66 @@
+{
+  "nome": "ZIMMUDO",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 2
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 3
+    },
+    {
+      "nome": "CURAR",
+      "valor": 3
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "DESORIENTAR",
+      "descricao": "(Passiva) Criaturas que ataquem você (acertando ou não) ficam Confusas."
+    },
+    {
+      "nome": "INABALÁVEL",
+      "descricao": "(Passiva) Você não pode ficar Confuso."
+    },
+    {
+      "nome": "SEDATIVO",
+      "descricao": "(Custo: 1 Ação) Até o começo de seu próximo turno, todas as criaturas precisam gastar 1 Ação adicional para Atacar."
+    }
+  ],
+  "tracos_adicionais": [
+    "DIETA SELETIVA"
+  ],
+  "partes": [
+    {
+      "nome": "GARGANTA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Cada vez que usar SEDATIVO, todas as criaturas a sua escolha ficam Confusas.",
+      "se_quebrado": "Você perde SEDATIVO."
+    },
+    {
+      "nome": "GARRAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo a última criatura a Atacar, já que isso raramente acontece ao seu redor. Seu instinto é sufocar a agressão daqueles à sua volta, usando os breves intervalos entre seus usos de SEDATIVO para partir para a ofensiva você mesmo. Aqueles que tentem contornar esse pacifismo forçado com TRAÇOS precisam lidar com sua habilidade para deixá-los Confusos — embora seja possível que ferais escapem disso usando sua própria receita contra você, preparando uma refeição com seu Ingrediente favorito, Broto de Ervafumo, que concede INABALÁVEL. Caçadas contra você podem ser bem esquisitas, mas é isso que faz delas únicas.",
+  "dieta": null,
+  "habitat": [
+    "Vegetação (Folhas de Ervafumo, Brotos de Ervafumo)",
+    "Montanha (Bosque da Ervafumo)"
+  ]
+}

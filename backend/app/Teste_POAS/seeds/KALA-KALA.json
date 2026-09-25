@@ -1,0 +1,69 @@
+{
+  "nome": "KALA-KALA",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 0,
+    "preciso": 1,
+    "sagaz": 3
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "AGARRAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "CHAMAR",
+      "descricao": "+3"
+    },
+    {
+      "nome": "ESTUDAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "ESCALAR",
+      "descricao": "2. (Passiva) Você pode escalar sem Desvantagem. Além disso, ao se Mover enquanto estiver escalando, Mova-se 2 Pernadas em vez de 1."
+    },
+    {
+      "nome": "MIMETISMO VOCAL.",
+      "descricao": "(Custo: 2 Ações) Faça um CHAMAR SAGAZ. Se passar, escolha um desses efeitos: uma criatura a sua escolha fica Confusa [A], uma criatura a sua escolha fica Amedrontada [A], ou todas as criaturas a até 1 Pernada de você sofrem cada uma [A] de Dano e ficam Atordoadas."
+    },
+    {
+      "nome": "REFLEXOS NATURAIS.",
+      "descricao": "(Passiva) Você reduz o Dano causado por GOLPEAR LIGEIRO e ATIRAR LIGEIRO."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "LÍNGUA",
+      "durabilidade": null,
+      "alcance": 3,
+      "passiva": "Se você Atacar uma criatura com essa PARTE e acertar, ela fica Presa. Você não pode Atacar enquanto estiver segurando uma criatura Presa, mas no início de cada um dos seus turnos ela fica Fadigada, e no início de cada um dos seus turnos completos, fica Fadigada 5.",
+      "se_quebrado": "Alcance: 1 (AGARRAR LIGEIRO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde 1 nível de REFLEXOS NATURAIS e 1 nível de ESCALAR."
+    },
+    {
+      "nome": "SACOS VOCAIS",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Se você fizer um CHAMAR com um [A] de 20+, um membro territorial, instigado, ou protetor da espécie que você está imitando chega para investigar no final da rodada.",
+      "se_quebrado": "Você perde MIMETISMO VOCAL."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a última criatura a se Mover, já que você caça baseado em movimentação. Seu instinto é encontrar um lugar seguro para usar seu MIMETISMO VOCAL e então agarrar o alvo com sua LÍNGUA. Você odeia ficar cercado, então está sempre tentando criar distância entre qualquer criatura que não esteja tentando comer. O efeito adicional dos seus SACOS VOCAIS raramente acontece, mas aproveite o caos caso ocorra. Para dicas sobre como executar A Caçada com múltiplos monstros, veja a p. 275.",
+  "dieta": "Monstros terrestres (Vermes), microalgas (Alga Noturna)",
+  "habitat": [
+    "Arvoredo"
+  ]
+}

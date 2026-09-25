@@ -1,0 +1,72 @@
+{
+  "nome": "UOPANG",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 2,
+    "preciso": 3,
+    "sagaz": 0
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "AGARRAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ATIRAR",
+      "descricao": "+3"
+    },
+    {
+      "nome": "CURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "GOLPEAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "ARMADURA NATURAL",
+      "descricao": "(Passiva) Você reduz à metade o Dano que sofre de GOLPEAR PODEROSO e de ATIRAR PODEROSO."
+    },
+    {
+      "nome": "MIRA INSTINTIVA",
+      "descricao": "(Custo: 1 Sucesso em ATIRAR) A criatura atingida por seu ATIRAR fica Atordoada."
+    },
+    {
+      "nome": "REGENERAÇÃO 3",
+      "descricao": "(Custo: 1 Sucesso) Recupere 3 de Durabilidade a qualquer de suas PARTES."
+    }
+  ],
+  "tracos_adicionais": [
+    "CARNICEIRO"
+  ],
+  "partes": [
+    {
+      "nome": "CONCHA",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você fica Exposto e perde ARMADURA NATURAL."
+    },
+    {
+      "nome": "GARRA DIREITA",
+      "durabilidade": 20,
+      "alcance": 3,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Você não pode usar REGENERAÇÃO nessa PARTE."
+    },
+    {
+      "nome": "GARRA ESQUERDA",
+      "durabilidade": 10,
+      "alcance": 1,
+      "passiva": "A primeira vez que sua GARRA DIREITA quebrar, arranque-a com esta PARTE e ganhe o seguinte efeito: “Depois que fizer um GOLPEAR PODEROSO com esta PARTE, você também causa [A] de Dano a todas as criaturas a 1 Pernada, exceto ao seu alvo.”",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Esta PARTE causa metade do Dano. Passiva: Se estiver segurando sua GARRA DIREITA decepada, derrube-a. Se você usar REGENERAÇÃO nessa PARTE, pode pegá-la de novo."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura que tenha usado Mover ou o Estilo LIGEIRO na última rodada, já que seus olhos complexos são excelentes para rastrear movimento. Seu instinto é aproveitar ao máximo seu arsenal atual. Para ser claro, sua GARRA DIREITA não “quebra” de verdade. Em vez disso, você a arranca quando ela atingir 0 de Durabilidade, e a faz crescer novamente, em uma forma mais rígida essencialmente imune a Dano à Parte. Já a sua GARRA ESQUERDA, as regras para ela não cobrem todos os casos. Deixe que a ficção venha primeiro e decida o que será melhor se os ferais forem criativos.",
+  "dieta": "Monstros terrestres (Vermes), monstros voadores, monstros aquáticos (Goby Guelrabença, Pratanguejo), carniça.",
+  "habitat": [
+    "Praia",
+    "Montanha (Cataratas do Yhayhe)"
+  ]
+}

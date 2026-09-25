@@ -1,0 +1,72 @@
+{
+  "nome": "JAMA-JAMA",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "AGARRAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ATIRAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "CURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "NADAR",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem."
+    },
+    {
+      "nome": "VENENO 3",
+      "descricao": "(Custo: 1 Sucesso em ATIRAR ou GOLPEAR) A criatura atingida por seu ATIRAR ou GOLPEAR fica Envenenada 3."
+    }
+  ],
+  "tracos_adicionais": [
+    "DIETA SELETIVA",
+    "ENGOLIR INTEIRO",
+    "FERMENTADOR",
+    "METAMORFOSE",
+    "POLINIZADOR",
+    "TERRITORIAL",
+    "DURABILIDADE",
+    "10",
+    "20",
+    "20"
+  ],
+  "partes": [
+    {
+      "nome": "BARRIGA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você fica Exposto."
+    },
+    {
+      "nome": "LÍNGUA",
+      "durabilidade": null,
+      "alcance": 3,
+      "passiva": "Se você Atacar com essa PARTE e acertar, você pode puxar seu alvo para 1 Pernada mais perto.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "MANDÍBULA",
+      "durabilidade": null,
+      "alcance": 3,
+      "passiva": "A cada vez que usar VENENO quando Atacar com essa PARTE, todas as criaturas a 0 Pernada do seu alvo (incluindo seu alvo) ficam Confusas.",
+      "se_quebrado": "Alcance: 2 (ATIRAR SAGAZ). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura que esteja a 0 Pernada de outra, já que você almeja eficiência com seu arroto. Seu instinto é manter-se firme e afastar todos os intrusos do seu território. Enquanto sua  LÍNGUA puxa tecnicamente qualquer criatura para perto, você a usa principalmente para agrupar criaturas e sufocá‑las com uma nuvem intoxicante de sua MANDÍBULA (dê aos ferais oportunidades de fazer o papel de bêbado; quase todo mundo se diverte interpretando um bebum). Seus vários Traços não combativos provavelmente não serão relevantes durante A Caçada, mas é possível usá‑los como inspiração ao descrever suas ações ou em momentos de improvisação.",
+  "dieta": "Fruta (Ameixa Jya)",
+  "habitat": [
+    "Montanha (Fundão, Antigo Sen Che, Bandejargênteas)"
+  ]
+}

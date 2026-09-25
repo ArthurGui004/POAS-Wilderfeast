@@ -1,0 +1,80 @@
+{
+  "nome": "VOTRA ENXAME",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "AMEAÇAR",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Uma criatura à sua escolha fica Amedrontada."
+    },
+    {
+      "nome": "DESORIENTAR",
+      "descricao": "(Passiva) Criaturas que ataquem você (quer sejam bem-sucedidas, quer falhem) ficam Confusas."
+    },
+    {
+      "nome": "ECOLOCALIZAÇÃO",
+      "descricao": "(Custo: 1 Sucesso em um CHAMAR) Uma criatura à sua escolha fica Exposta."
+    },
+    {
+      "nome": "METAMORFOSE",
+      "descricao": ""
+    },
+    {
+      "nome": "EXPANDIR",
+      "descricao": "(Custo: 1 Ação) Você fica Expandido."
+    },
+    {
+      "nome": "VOAR",
+      "descricao": "(Passiva) Você pode voar."
+    },
+    {
+      "nome": "ENXAMEANTE",
+      "descricao": ""
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "ASAS",
+      "durabilidade": 25,
+      "alcance": 1,
+      "passiva": "Se você Atacar com esta PARTE enquanto Expandido e acertar, seu alvo fica Preso. No começo de cada rodada, criaturas Presas por você sofrem 10 de Dano.",
+      "se_quebrado": "Alcance: 1 (CHAMAR). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "MANCHAS OCULARES",
+      "durabilidade": 25,
+      "alcance": null,
+      "passiva": "Você pode gastar Sucessos em PRECISO para usar AMEAÇAR.",
+      "se_quebrado": "Você perde AMEAÇAR."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, escolha como alvo uma criatura Confusa, já que você interpreta seus movimentos trôpegos como uma fraqueza. Seu instinto é desnortear sua presa antes de envolvê-la e superaquecê-la. Como você pode infligir até quatro Condições de cada vez, isso deve acontecer naturalmente. A alta Durabilidade de suas PARTES representa o quão difícil é mirar em qualquer parte específica do seu “corpo” em constante movimento. Da mesma forma, você faz CHAMAR (usando qualquer ESTILO) para Atacar, porque a dificuldade maior é coordenar o seu corpo para agir como um só, e não atingir o seu alvo.",
+  "dieta": "Néctar (Néctar de Flor-de-Mar, Néctar de Florarcaica)",
+  "habitat": [
+    "Praias (Praia das Mãos Alvas)",
+    "Deserto"
+  ]
+}

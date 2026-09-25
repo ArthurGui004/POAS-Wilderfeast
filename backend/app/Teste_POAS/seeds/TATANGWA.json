@@ -1,0 +1,81 @@
+{
+  "nome": "TATANGWA",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 2,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "ARAMAZENAR",
+      "valor": 1
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 3
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CAMUFLAGEM",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Você fica Escondido."
+    },
+    {
+      "nome": "ESCALAR",
+      "descricao": "(Passiva) Você pode escalar sem Desvantagem."
+    },
+    {
+      "nome": "PREDADOR DE EMBOSCADA",
+      "descricao": "(Passiva) Se você Atacar enquanto estiver Escondido, causa o dobro de Dano."
+    },
+    {
+      "nome": "VELOCIDADE",
+      "descricao": "(Custo: 1 Sucesso LIGEIRO) Você pode Mover sem gastar uma Ação."
+    }
+  ],
+  "tracos_adicionais": [
+    "PROFESSOR"
+  ],
+  "partes": [
+    {
+      "nome": "ASAS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Você pode Atacar usando o Estilo LIGEIRO múltiplas vezes no mesmo turno.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "BICO",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR SAGAZ). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PENAS",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Você começa a Caçada Escondido e sempre tem a iniciativa na primeira rodada.",
+      "se_quebrado": "Você perde CAMUFLAGEM."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura Ferida, já que você é um caçador experiente e prático. Seu instinto é esgueirar-se o mais próximo que puder de seu alvo e dar o bote. Você não perde tempo exibindo-se ou fazendo ameaças — simplesmente ataca para matar, e isso o torna ainda mais assustador. Use CAMUFLAGEM com a maior frequência possível. Se suas PENAS quebrarem, mude de caçador furtivo para ágil, priorizando GOLPEAR LIGEIRO para que possa encerrar A Caçada antes que fique sem Vigor. Você é um inimigo muito mais desafiador do que outros monstros do seu Nível, e aqueles que desejem caçá-lo devem preparar-se adequadamente.",
+  "dieta": "carniça",
+  "habitat": [
+    "Monstros terrestres (Asaginga, Lapuni Selvagem)",
+    "Arvoredo (Bosque das Testemunhas)"
+  ]
+}

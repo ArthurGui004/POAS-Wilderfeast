@@ -50,18 +50,23 @@ class FichaMonstro(BaseModel):
 # ==========================================
 # 2. Configurações de Diretórios e API
 # ==========================================
-os.environ["GROQ_API_KEY"] = "YOUR_GROQ_API_KEY_HERE"
+os.environ["GROQ_API_KEY"] = "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"
 
-DIR_DOCS = Path("./docs")
+DIR_DOCS = Path("./app/Teste_POAS/docs")
 DIR_PROCESSADO = DIR_DOCS / ".processado"
-DIR_SEEDS = Path("./seeds")
+DIR_SEEDS = Path("./app/Teste_POAS/seeds")
 MANIFEST_FILE = DIR_DOCS / ".manifest.json"
 
 DIR_PROCESSADO.mkdir(parents=True, exist_ok=True)
 DIR_SEEDS.mkdir(parents=True, exist_ok=True)
 
-md = MarkItDown()
 client = Groq()
+md = MarkItDown(
+    enable_plugins=True,
+    llm_client=client,
+    llm_model="openai/gpt-oss-120b",
+    llm_prompt="Extraia todo o texto da tabela e preserve a estrutura"
+)
 
 # ==========================================
 # 3. Funções Auxiliares do Manifest
@@ -95,6 +100,8 @@ def extrair_json_com_groq(markdown_text: str) -> str:
                     Regras importantes:
                     - Não invente informação que não está na imagem: campo não encontrado
                     vira null (string), 0 (número) ou lista vazia (lista).
+                    - Poderoso, Ligeiro, Capsioso e Sagaz são estilos
+                    - Agarrar, Armazenamento, Assegurar, Atirar, Atravessar, Chamar, Curar, Estudar, Exibir, Golpear, Manufaturar, Procurar são Habilidades
                     - Em TRAÇOS e PARTES, capture o texto completo do efeito como está
                     escrito no card, não resuma.
                     - "Traços" e "Traços Adicionais" são listas separadas — não misture.
@@ -151,18 +158,20 @@ def processar_fluxo():
             # 1. Extração de texto via MarkItDown
             result = md.convert(str(pdf_path))
             markdown_content = result.text_content
+            print(markdown_content)
             
             # 2. Extração Estruturada via Groq
-            json_resultado = extrair_json_com_groq(markdown_content)
+            # json_resultado = extrair_json_com_groq(markdown_content)
+            # print(f'RESULTADO JSON\n{json_resultado}')
 
-            # 3. Salva o JSON na pasta /seeds
+            # # 3. Salva o JSON na pasta /seeds
             arquivo_seed = DIR_SEEDS / f"{pdf_path.stem}.json"
-            with open(arquivo_seed, "w", encoding="utf-8") as f:
-                f.write(json_resultado)
+            # with open(arquivo_seed, "w", encoding="utf-8") as f:
+            #     f.write(json_resultado)
 
-            # 4. Move o PDF para /docs/.processado
+            # # 4. Move o PDF para /docs/.processado
             destino_processado = DIR_PROCESSADO / nome_arquivo
-            shutil.move(str(pdf_path), str(destino_processado))
+            # shutil.move(str(pdf_path), str(destino_processado))
 
             # 5. Atualiza o .manifest.json
             manifest[nome_arquivo] = {

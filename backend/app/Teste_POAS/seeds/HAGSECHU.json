@@ -1,0 +1,19 @@
+{
+  "nome": "HAGSECHU",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 2,
+    "preciso": 0,
+    "sagaz": 3
+  },
+  "habilidades": [],
+  "tracos": [],
+  "tracos_adicionais": [],
+  "partes": [],
+  "comportamento": "PresaExpostaSe nenhuma criatura estiver  ou , escolha a última criatura que se moveu no Chão, pois o ritmo dos passos sempre atrai sua atenção. Seu instinto é esperar o quanto for para pegar uma criatura que passe sobre você. Construa suas ações com , PACIÊNCIA PERNASem seguida, saia do seu esconderijo no Subterrâneo partindo para cima com suas  de predador. Lembre-se de que SOPRO DE é um Traço que não tem as mesmas limitações de quando você ataca — você pode usá-lo repetidas vezes, desde que haja Ações FOGO Escondidopara gastar. A menos que existam circunstâncias especiais, você sempre começa A Caçada no Subterrâneo e .",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres",
+    "Arvoredo (Cauda de Rakuzar, Lapuni (Terras Chafurdantes, Bosque das, DesertoSelvagem)Testemunhas)"
+  ]
+}

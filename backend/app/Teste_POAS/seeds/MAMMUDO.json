@@ -1,0 +1,83 @@
+{
+  "nome": "MAMMUDO",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "LIGEIRO",
+      "valor": 0
+    },
+    {
+      "nome": "PRECISO",
+      "valor": 2
+    },
+    {
+      "nome": "PODEROSO",
+      "valor": 3
+    },
+    {
+      "nome": "SAGAZ",
+      "valor": 0
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "GOLPEAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "PROCURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ARMADURA NATURAL",
+      "descricao": "Você reduz à metade o Dano causado por GOLPEAR PODEROSO e ATIRAR PODEROSO."
+    },
+    {
+      "nome": "ESCAVAR",
+      "descricao": "Você pode cavar."
+    },
+    {
+      "nome": "INCANSÁVEL",
+      "descricao": "Remove <H> Fadigado e recupera <H> Vigor."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "Escolha uma criatura a até 3 Pernadas. Você se Move a até 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu (Isso não conta como gasto de Vigor)."
+    },
+    {
+      "nome": "RECUO",
+      "descricao": "Você pode Levantar a Guarda sem gastar Ações, mas você não pode se Mover até o início do seu próximo turno."
+    }
+  ],
+  "tracos_adicionais": [
+    "DIETA SELETIVA",
+    "POLINIZADOR"
+  ],
+  "partes": [
+    {
+      "nome": "ESCAMAS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Você perde ARMADURA NATURAL."
+    },
+    {
+      "nome": "GARRAS",
+      "durabilidade": 40,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire na última criatura que comeu algo doce, já que você está sempre curioso a respeito de fontes de açúcar. Seu instinto é rolar como uma bola, usar INVESTIDA contra seu alvo e derrubá-lo como um pino de boliche; depois disso, resguardar-se com RECUO e INCANSÁVEL. Você tende a realizar um turno completo perto do fim da rodada, de modo que, após colidir com seu alvo, você pode escolher um novo alvo com segurança, enquanto o anterior ainda está correndo na sua direção para voltar à distância corpo a corpo. Mesmo enfurecido, você só ataca com suas GARRAS como último recurso.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres (Brasanguejo), néctar (Néctar de Taçaflauta)",
+    "Arvoredo (Pomar Sen To, Terras Chafurdantes, Taçaflauta), mel (Balsamel) e minerais (Argilafurda) Bosque das Testemunhas"
+  ]
+}

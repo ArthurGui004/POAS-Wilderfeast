@@ -1,0 +1,84 @@
+{
+  "nome": "FAGURILA",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 2
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 3
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "AMEAÇAR 2",
+      "descricao": "(Custo: 1  Sucesso PODEROSO) Criaturas à sua escolha ficam Amedrontadas."
+    },
+    {
+      "nome": "CORPO EM CHAMAS",
+      "descricao": "(Passiva) No começo de cada rodada, toda criatura a sua escolha que estiver a 0 Pernada de você sofre 2 de Dano. Além disso, se você for Preso por uma PARTE, essa PARTE fica Queimada. Por fim, nenhuma das suas PARTES podem ficar Queimadas."
+    },
+    {
+      "nome": "ESCALAR",
+      "descricao": "(Passiva) Você pode escalar sem Desvantagem."
+    }
+  ],
+  "tracos_adicionais": [
+    "BRINCALHÃO",
+    "PROFESSOR"
+  ],
+  "partes": [
+    {
+      "nome": "PELOS",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Seu CORPO EM CHAMAS não causa Dano, a menos que você gaste 1 Ação para incendiá-lo. Cada vez que usar AMEAÇAR 2, aumente o Dano causado por CORPO EM CHAMAS em 1 até o final da Jornada ou até que essa PARTE seja Quebrada. Se você causar Dano a um feral com CORPO EM CHAMAS, o UTENSÍLIO dele fica Queimado.",
+      "se_quebrado": "Você perde CORPO EM CHAMAS."
+    },
+    {
+      "nome": "PUNHOS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Se você conseguir Atacar uma criatura com essa PARTE, ela fica Presa.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a criatura que usou o Estilo PODEROSO na sua última rodada, já que você considera força uma ameaça. Seu instinto é agarrar qualquer desafiante e subjugá-lo, rugindo alto para que todas as testemunhas saibam que esse é seu território. Você pode manter múltiplas criaturas Presas em seus PUNHOS, mas tende a focar em esmerilhar o primeiro no soco antes de dar atenção para outro inimigo. Normalmente, você não inflama seus PELOS até que esteja Amedrontado ou Ferido — não por razões táticas, mas por ser um animal que não gasta recursos sem motivo. Quando fica em chamas, é hora de se apressar e terminar a luta de uma forma ou de outra. Cada vez que você bater no seu peito para AMEAÇAR, mais faíscas voam, e mais sua pelagem esquenta, até irromper em chamas.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres, ovos (Ovos de Wari), folhagem",
+    "Arvoredo (Jardins Ghao Gan, Bosque das Testemunhas), (Broto de Ervafumo), fruta (Falso Pêssego Che, Cerejasca), fungos (Cogumelo Olho-de-Siri)",
+    "Montanha (Antigo Sen Che, Bosque da Ervafumo)"
+  ]
+}

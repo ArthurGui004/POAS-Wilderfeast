@@ -1,0 +1,85 @@
+{
+  "nome": "YUDOUBU",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "ATIRAR",
+      "descricao": "+3"
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "ARMAZENAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "EXIBIR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "EXPANDIR",
+      "descricao": "(Custo: 1 Ação) Você fica Expandido."
+    },
+    {
+      "nome": "MIRA INSTINTIVA",
+      "descricao": "(Custo: 1 Sucesso em ATIRAR) A criatura atingida por seu ATIRAR fica Atordoada."
+    },
+    {
+      "nome": "NADAR",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem."
+    },
+    {
+      "nome": "NÃO-ME-TOQUE 3",
+      "descricao": "(Passiva) Se uma criatura fizer um AGARRAR ou GOLPEAR contra você, cause 3 de Dano a ela."
+    }
+  ],
+  "tracos_adicionais": [
+    "CONSTRUTOR DE NINHO"
+  ],
+  "partes": [
+    {
+      "nome": "BARRIGA",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Se você se Mover no Chão, pode escorregar até 2 Pernadas para longe em vez de 1.",
+      "se_quebrado": "Você fica Exposto."
+    },
+    {
+      "nome": "BICO",
+      "durabilidade": 10,
+      "alcance": 1,
+      "passiva": "Se você causar Dano com esta PARTE, cause Dano à Parte em vez disso. Se você quebrar uma PARTE com esta PARTE, jogue seu alvo 3 Pernadas para longe.",
+      "se_quebrado": "Alcance: 1 ( GOLPEAR LIGEIRO). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "BOCHECHAS",
+      "durabilidade": 20,
+      "alcance": 3,
+      "passiva": "Você só pode Atacar com esta  PARTE enquanto estiver Expandido. Depois de realizar um ATIRAR com esta PARTE (acertando ou não), você perde Expandido e pode escorregar 1 Pernada para longe de seu alvo.",
+      "se_quebrado": "Esta PARTE não faz nada."
+    },
+    {
+      "nome": "ESPINHOS",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Você só pode usar NÃO-ME-TOQUE 3 enquanto estiver Expandido. Criaturas feridas por NÃO-ME-TOQUE 3 também ficam Envenenado 3.",
+      "se_quebrado": "Você perde NÃO-ME-TOQUE 3."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura com uma PARTE não quebrada, uma vez que você não consegue diferenciar o movimento de uma garra de caranguejo de um Utensílio de arkaicaço. Seu instinto é escorregar pelas planícies enlameadas como um balão vazando, causando o máximo de caos enquanto passa. Se estiver cercado por criaturas hostis, tente terminar seu turno Expandido, já que isso desencoraja retaliações enquanto você foca sua mira para realizar outro ATIRAR.",
+  "dieta": null,
+  "habitat": [
+    "Monstros aquáticos (Ostra Real, Pratanguejo",
+    "Praias (Ilha Berço, Planícies Ensaboadas)",
+    "Deserto (Lago Camarão-sabão, Solguejo)",
+    "Esporádico"
+  ]
+}

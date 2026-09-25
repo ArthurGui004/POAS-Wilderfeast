@@ -1,0 +1,29 @@
+{
+  "nome": "CHAMIG",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 4,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [],
+  "tracos": [],
+  "tracos_adicionais": [
+    ".GOLPEARPODEROSOATIRARPODEROSOVocê reduz à metade o Dano causado por   e  . ARMADURA NATURAL(Passiva)",
+    "DEVORADOR",
+    "Escondidas Criaturas  não ganham Vantagem se atacarem você.. ELECTRORRECEPTIVIDADE(Passiva)",
+    "DE ENERGIA",
+    "Considere todas as criaturas como se estivessem a 3 Pernadas mais próximas de você do que . GIGANTESCO(Passiva)",
+    "realmente estão.MIGRADOR",
+    "PODEROSO PRECISO Você pode Levanta a guarda sem gastar Ações, mas não pode se . RECUO(Custo: 1 Sucesso ou)",
+    "POLINIZADOR",
+    "Mover até o início do seu próximo turno.",
+    "PresoNada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja .. ROBUSTO(Passiva)"
+  ],
+  "partes": [],
+  "comportamento": "ExpostaExpandidaSe nenhuma criatura estiver , mire uma criatura , já que a maioria dos alvos potenciais é tão pequena que você os ignora. Seu instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
+  "dieta": "N/A",
+  "habitat": [
+    "Deserto"
+  ]
+}

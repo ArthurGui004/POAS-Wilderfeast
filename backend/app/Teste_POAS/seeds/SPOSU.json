@@ -1,0 +1,81 @@
+{
+  "nome": "SPOSU",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATIRAR",
+      "valor": 2
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 1
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "BIOLUMINESCÊNCIA",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Uma criatura à sua escolha fica Confusa."
+    },
+    {
+      "nome": "CLARÃO",
+      "descricao": "(Custo: 2 Ações) Faça um tesste de EXIBIR LIGEIRO.  Se passar, uma criatura à sua escolha fica Atordoada e Confusa [A]."
+    },
+    {
+      "nome": "CORPO QUENTE",
+      "descricao": "(Passiva) No começo de cada turno, criaturas à sua escolha a até 0 Pernada de você sofrem 2 de Dano. Além disso, se você estiver Preso por uma PARTE, essa PARTE fica Queimada. Por fim, suas PARTES não podem ficar Queimadas."
+    },
+    {
+      "nome": "ESCALAR",
+      "descricao": "(Passiva) Você pode escalar sem Desvantagem."
+    },
+    {
+      "nome": "NADAR 2",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem. Além disso, caso se Mova enquanto nada, você pode se Mover até 2 Pernadas em vez de 1."
+    }
+  ],
+  "tracos_adicionais": [
+    "CARNICEIRO"
+  ],
+  "partes": [
+    {
+      "nome": "BARBATANAS",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Se você estiver a até 0 Pernada de uma criatura, ela o arrasta junto toda vez que se Mover (Você pode escolher a qual criatura está agarrado se houver múltiplas a 0 Pernada).",
+      "se_quebrado": "Você perde ESCALAR e 1 nível em NADAR."
+    },
+    {
+      "nome": "ESPINHAS",
+      "durabilidade": 20,
+      "alcance": 2,
+      "passiva": "Se você Atacar com esta PARTE e acertar, a PARTE em que mirou fica Queimada.",
+      "se_quebrado": "Alcance: 1 (ATIRAR SAGAZ). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura Atordoada, já que você frequentemente atordoa suas presas antes de matá-las. Seu instinto é agarrar-se a uma criatura com suas BARBATANAS e então liberar um bombardeio de fagulhas contra seu alvo. Perceba que a criatura a 0 Pernada de você e seu alvo não são necessariamente os mesmos — um só está lhe dando uma carona, e o outro você quer levar para casa como refeição para a colônia. Tente realizar seu turno completo depois do turno do seu alvo, para que possa atordoá-lo de novo com seu CLARÃO, e mantenha seu foco nele durante a próxima rodada.",
+  "dieta": "GENERALISTA. Monstros terrestres (Verme, carniça, frutos (Falso Pêssego Che ))",
+  "habitat": [
+    "Montanha"
+  ]
+}

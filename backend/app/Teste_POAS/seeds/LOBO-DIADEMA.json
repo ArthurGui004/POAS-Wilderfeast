@@ -1,0 +1,81 @@
+{
+  "nome": "LOBO-DIADEMA",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 2,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CHEIRO DE SANGUE",
+      "descricao": "(Passiva) Você tem Vantagem em todos os Testes durante a primeira rodada da Caçada se do outro lado houver uma criatura Ferida."
+    },
+    {
+      "nome": "INCANSÁVEL",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Remove <H> Fadigado e recupera <H> Vigor."
+    },
+    {
+      "nome": "PERSEGUIÇÃO DO PREDADOR",
+      "descricao": "(Passiva) Se você se Mover em direção a uma criatura, ganhe Vantagem ao Ataca-lo até o final do seu turno."
+    },
+    {
+      "nome": "PREDADOR RESISTENTE",
+      "descricao": "(Custo: 1 Sucesso PODEROSO ou LIGEIRO) Uma criatura à sua escolha fica Fadigada."
+    }
+  ],
+  "tracos_adicionais": [
+    "CARNICEIRO",
+    "PREDADOR SOCIAL",
+    "TERRITORIAL"
+  ],
+  "partes": [
+    {
+      "nome": "DENTES",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Se você causar Dano à Parte em uma PARTE quebrada, seu alvo fica Exposto.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "GARRAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire em uma criatura Fadigada, já que você tem preferência por presas cansadas. Seu instinto é o de nunca dar a sua presa uma chance para descansar, e tudo isso enquanto cuida do próprio Vigor. Para ser franco, sua verdadeira força está além das suas estatísticas. Sua tolerância e coordenação com seu bando brilham muito mais durante a fase livre e na Trilha, mas quando está furioso e sozinho, você perde seus maiores trunfos. Apesar de tudo, você continua sendo um caçador grande e perigoso! Seus DENTES metálicos são particularmente bons para quebrar ferramentas de arkaicaço e deixar os ferais vulneráveis.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres (Wooda Selvagem), carniça",
+    "Praia (Mesalta), Arvoredo (Montes Nakwon, Musicampo), Montanhas",
+    "(Trilha das Lamentações), Deserto (Vale dos Açougueiros)"
+  ]
+}

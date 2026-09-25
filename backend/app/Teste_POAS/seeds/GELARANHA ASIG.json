@@ -1,0 +1,81 @@
+{
+  "nome": "GELARANHA ASIG",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 3
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CAMUFLAGEM",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Você fica Escondido."
+    },
+    {
+      "nome": "LADRÃO",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Roube um Ingrediente, um Lanche ou uma criatura Presa de um alvo que esteja a até 1 Pernada de você. (Você escolhe se a criatura Presa roubada por você agora está Presa por você ou livre.)"
+    },
+    {
+      "nome": "PACIÊNCIA",
+      "descricao": "(Passiva) Você pode preparar 3 vezes por turno."
+    },
+    {
+      "nome": "SENTIDOS AGUÇADOS",
+      "descricao": "(Custo: 1 Sucesso PRECISO) Uma criatura a sua escolha fica Exposta."
+    },
+    {
+      "nome": "TECE-TEIAS",
+      "descricao": "(Custo: 2 Ações) Faça um MANUFATURAR SAGAZ. Se passar, a próxima vez que uma criatura hostil se Mover em sua direção, ela sofrerá [A] Dano à Parte e não pode se Mover até o início do próximo turno."
+    }
+  ],
+  "tracos_adicionais": [
+    "CONSTRUTOR DE NINHOS"
+  ],
+  "partes": [
+    {
+      "nome": "PELOS",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": "Você pode gastar 1 Sucesso em um MANUFATURAR para usar SENTIDOS AGUÇADOS.",
+      "se_quebrado": "Você perde SENTIDOS AGUÇADOS."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "TEIA",
+      "durabilidade": 1,
+      "alcance": null,
+      "passiva": "Cada vez que você usa TECE-TEIAS, crie uma nova instância dessa PARTE com sua própria Durabilidade separada. Criaturas que sofrem Dano à Parte do TECE-TEIAS também ficam Presas por essa PARTE, mas não são puxadas para 0 Pernada na sua direção. Criaturas podem Atacar essa PARTE de qualquer distância, mas se o fizeram, você não perde Vigor.",
+      "se_quebrado": "A instância de TECE-TEIAS representada por essa PARTE acaba."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a última criatura que atacou sua TEIA, já que você prefere manter suas armadilhas de teia intactas. Seu instinto é preparar sua armadilha de teia e esperar pacientemente no seu centro. Se estiver confusa sobre como sua TEIA funciona, faça o que fizer sentido narrativamente falando.",
+  "dieta": null,
+  "habitat": [
+    "Monstros terrestres (Geleca de Onagung, Wooda",
+    "Montanha (Antigo Sen Che) Selvagem), monstros voadores"
+  ]
+}

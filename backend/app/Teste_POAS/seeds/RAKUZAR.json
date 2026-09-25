@@ -1,0 +1,51 @@
+{
+  "nome": "RAKUZAR",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "CURAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 1
+    }
+  ],
+  "tracos": [],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "CAUDA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "10",
+      "se_quebrado": null
+    },
+    {
+      "nome": "BARRIGA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": null
+    },
+    {
+      "nome": "GOLPEAR",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": null,
+      "se_quebrado": null
+    }
+  ],
+  "comportamento": "ExpostaCHAMARSe nenhuma criatura estiver , escolha como alvo a última criatura a fazer um , já que você duela com rivais Expandidode sua própria espécie por meio do som. Seu instinto é ficar  o mais rápido e o máximo possível, para que possa usar sua voz bombástica para forçar seus inimigos à submissão com seus rugidos. Suas Partes são frágeis, mas elas só precisam de 1 de BARRIGADurabilidade para não estarem mais quebradas. Priorize usar  em sua , para que possa retornar à sua REGENERAÇÃO Expandidaforma  carregada de hormônios.",
+  "dieta": "GENERALISTA",
+  "habitat": [
+    "Monstros voadores",
+    "Deserto(Asarremo, Votra)",
+    "folhagem (Palma de Cacto)"
+  ]
+}

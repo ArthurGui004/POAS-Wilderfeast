@@ -1,0 +1,66 @@
+{
+  "nome": "LAPU-LAPU",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [],
+  "tracos": [
+    {
+      "nome": "ARMAZENAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "ASSEGURAR",
+      "descricao": "+2"
+    },
+    {
+      "nome": "MANUFATURAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "PROCURAR",
+      "descricao": "+1"
+    },
+    {
+      "nome": "ESCAVAR",
+      "descricao": "(Passiva) Você pode cavar."
+    },
+    {
+      "nome": "NÃO-ME-TOQUE 5",
+      "descricao": "(Passiva) Se uma criatura fizer um AGARRAR ou GOLPEAR contra você, cause 5 de Dano a ela."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "INCISIVOS",
+      "durabilidade": 20,
+      "alcance": 1,
+      "passiva": "Se você causar Dano com essa PARTE, em vez disso, cause Dano à PARTE.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "LÃ",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Para cada 10 pontos de Durabilidade que essa PARTE perde, você perde 1 nível de NÃO-ME-TOQUE (Exemplo: Se essa PARTE tiver 40 de durabilidade, você só tem NÃO-ME-TOQUE 4.) Criaturas que miram nessa PARTE com Dano à Parte não sofrem Dano pelo NÃO-ME-TOQUE.",
+      "se_quebrado": "Você perde todos os seus níveis de NÃO-ME-TOQUE e fica Exposto."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": 50,
+      "alcance": 1,
+      "passiva": "Depois de ficar Ferido, mova qualquer criatura 1 Pernada de distância. Então, mova outra criatura 2 Pernadas de distância. Então, mova outra criatura 3 Pernadas de distância.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire a última criatura que causou Dano à Parte em sua LÃ, já que você precisa proteger sua pelagem para que ela o proteja. Seu instinto é fugir, mantendo distância de seu perseguidor enquanto usa sua LÃ abrasiva coibir qualquer tentativa dele de pará-lo. Ao mesmo tempo, o frenesi o leva a roer qualquer ferramenta de arkaicaço que os ferais possam usar para cortar sua pelagem. Se estiver Machucado e suas PERNAS não estiverem quebradas, saltite de um lado para o outro, reorganizando o campo de batalha a seu favor (você pode fazer isso fora do seu turno, e isso não custa Ações)",
+  "dieta": "sementes e grãos",
+  "habitat": [
+    "Folhagem (Luminusgo), raízes (Raiz coxim), fungos",
+    "Montanha"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "nome": "LOTANGWA",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 3
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 1
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "MERGULHAR",
+      "descricao": "(Custo: 1 Ação) Mova-se a até 0 Pernada de uma criatura num Terreno abaixo de você (Céu está acima da maioria dos Terrenos, e o Subterrâneo está abaixo da maioria dos Terrenos. Nos demais casos, avalie conforme seu julgamento)."
+    },
+    {
+      "nome": "NADAR",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem."
+    },
+    {
+      "nome": "VOAR",
+      "descricao": "2.  (Passiva)  Você  pode  voar.  Além  disso,  caso  se  Mova  enquanto  voa,  você  pode  se  Mover  2 Pernadas em vez de 1."
+    }
+  ],
+  "tracos_adicionais": [
+    "CONSTRUTOR DE NINHOS",
+    "ENGOLIR INTEIRO"
+  ],
+  "partes": [
+    {
+      "nome": "ASAS",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Ao final de cada turno completo, você pode se Mover para Mudar o Terreno sem gastar nenhuma das suas Ações.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "BICO",
+      "durabilidade": null,
+      "alcance": 1,
+      "passiva": "Se você Atacar uma criatura com essa PARTE e acertar, ela fica Presa.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "PÉS",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde NADAR."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire uma criatura que esteja num terreno abaixo de você, já que você sempre tenta golpear sua presa vindo de cima. Seu instinto é pegar uma criatura com seu BICO e recuar para uma distância segura. Lembre-se de que você pode Atacar um alvo que esteja Preso, triturando-o com seu BICO enquanto tenta sufocá-lo e engoli-lo. Seus PÉS com membranas e suas ASAS LIGEIRAS lhe dão melhores condições de manobra quando você MERGULHA entrando e saindo da água.",
+  "dieta": "Monstros aquáticos (Goby Guelrabença, Lulesguicho, Peixe-bobo Marinho)",
+  "habitat": [
+    "Praias"
+  ]
+}
