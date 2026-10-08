@@ -6,7 +6,9 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel
-from markitdown import MarkItDown
+import pypdfium2 as pdfium
+import torch
+from transformers import AutoProcessor, GlmOcrForConditionalGeneration
 from groq import Groq
 
 # Silencia avisos no terminal
@@ -48,49 +50,34 @@ class FichaMonstro(BaseModel):
     habitat: List[str] = []
 
 # ==========================================
-# 2. Configurações de Diretórios e APIs
+# 2. Configurações de Diretórios, API e IA Local
 # ==========================================
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "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"
 
-DIR_DOCS = Path("./app/Teste_POAS/docs")
+DIR_DOCS = Path("./docs")
 DIR_PROCESSADO = DIR_DOCS / ".processado"
-DIR_SEEDS = Path("./app/Teste_POAS/seeds")
+DIR_SEEDS = Path("./seeds")
 MANIFEST_FILE = DIR_DOCS / ".manifest.json"
 
 DIR_PROCESSADO.mkdir(parents=True, exist_ok=True)
 DIR_SEEDS.mkdir(parents=True, exist_ok=True)
 
-MODELO_UNICO = "openai/gpt-oss-120b"
-PROMPT_MARKITDOWN = """
-Você é um transcritor especialista em layout de fichas de RPG.
-Sua tarefa é converter todo o conteúdo visual e estrutural do documento em Markdown impecável.
+MODELO_GROQ = "openai/gpt-oss-120b"
+MODELO_LOCAL_ID = "zai-org/GLM-OCR"
 
-Siga estas regras estritas de transcrição:
-1. PRESERVAÇÃO DE ATRIBUTOS E NÚMEROS:
-   - Identifique caixas de atributos (como ESTILOS e HABILIDADES) e mantenha os pares Chave: Valor exatamente como aparecem visualmente (ex: "PODEROSO: 4", "LIGEIRO: 0", "ARMAZENAR: +1").
-   - Interprete círculos vazios, letras 'O' ou ícones de preenchimento em blocos de atributos numéricos como o número 0, caso representem valor nulo.
-
-2. ESTRUTURA DE PARTES E EQUIPAMENTOS:
-   - Para cada item na seção PARTES, preserve o Nome da Parte (ex: CASCO, PÉS), Durabilidade, Alcance e seus blocos internos "Passiva:" e "Se Quebrado:".
-   - Mantenha valores de Alcance completos se contiverem texto explicativo (ex: "Alcance: 1 (GOLPEAR PODEROSO)").
-
-3. COLUNAS E HIERARQUIA:
-   - Não misture colunas paralelas. Mantenha os cabeçalhos das seções (ESTILOS, HABILIDADES, TRAÇOS, PARTES, COMPORTAMENTO, DIETA, HÁBITAT) bem delimitados com Markdown (#, ##, ###).
-   - Transcreva todo o texto descritivo e passivas sem resumir ou omitir parágrafos.
-"""
-
-client = Groq()
-
-
-md = MarkItDown(
-    enable_plugins=True,
-    llm_client=client,
-    llm_model= MODELO_UNICO,
-    llm_prompt="Descreva esta ficha de RPG preservando a ordem visual das colunas e caixas de texto separadamente."
+# Carregamento do modelo GLM-OCR Local
+print("⏳ Carregando modelo local GLM-OCR...")
+processor = AutoProcessor.from_pretrained(MODELO_LOCAL_ID)
+model_ocr = GlmOcrForConditionalGeneration.from_pretrained(
+    MODELO_LOCAL_ID,
+    device_map="auto",
+    torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32
 )
 
+client_groq = Groq()
+
 # ==========================================
-# 3. Funções Auxiliares do Manifest
+# 3. Funções Auxiliares
 # ==========================================
 def carregar_manifest() -> dict:
     if MANIFEST_FILE.exists():
@@ -105,32 +92,66 @@ def salvar_manifest(manifest: dict):
     with open(MANIFEST_FILE, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
 
+def extrair_texto_pdf_com_glm_ocr(pdf_path: Path) -> str:
+    """Renderiza cada página do PDF em imagem e realiza OCR via GLM-OCR local."""
+    pdf = pdfium.PdfDocument(pdf_path)
+    texto_paginas = []
+
+    for page_idx, page in enumerate(pdf):
+        # Renderiza a página em imagem com escala 2x para melhor precisão
+        image = page.render(scale=2).to_pil()
+
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image", "image": image},
+                    {"type": "text", "text": "Text Recognition:"}
+                ]
+            }
+        ]
+
+        inputs = processor.apply_chat_template(
+            messages,
+            tokenize=True,
+            add_generation_prompt=True,
+            return_dict=True,
+            return_tensors="pt"
+        ).to(model_ocr.device)
+
+        input_len = inputs["input_ids"].shape[1]
+        
+        with torch.no_grad():
+            output = model_ocr.generate(**inputs, max_new_tokens=2048)
+        
+        texto_extraido = processor.decode(output[0][input_len:], skip_special_tokens=True)
+        texto_paginas.append(texto_extraido)
+
+    return "\n\n--- NOVA PÁGINA ---\n\n".join(texto_paginas)
+
 # ==========================================
-# 4. Chamada à Groq para Estruturação JSON
+# 4. Estruturação JSON via Groq
 # ==========================================
 def extrair_json_com_groq(markdown_text: str) -> str:
     schema_json = FichaMonstro.model_json_schema()
 
     system_prompt = (
-        "Você é um extrator de dados especialista em fichas de RPG de layout coluna.\n"
-        "ATENÇÃO: O texto de entrada foi extraído de um PDF de 2 colunas e pode estar entrelançado horizontalmente!\n\n"
-        "REGRAS DE DESENTRELAÇAMENTO E RECONSTRUÇÃO:\n"
-        "1. ESTILOS E HABILIDADES:\n"
-        "   - Separe os Estilos (LIGEIRO: 0, PODEROSO: 4, PRECISO: 0, SAGAZ: 0).\n"
-        "   - Separe as Habilidades com seus valores (ex: ARMAZENAR: 1, ASSEGURAR: 3, CURAR: 3, PROCURAR: 1).\n\n"
-        "2. TRAÇOS vs TRAÇOS ADICIONAIS:\n"
-        "   - Traços principais contêm o nome e a descrição com '(Passiva)' ou '(Custo: ...)'. Ex: ARMADURA NATURAL, ELECTRORRECEPTIVIDADE, GIGANTESCO, RECUO, ROBUSTO.\n"
-        "   - Expressões em caixa alta sem descrição extensa como 'DEVORADOR DE ENERGIA', 'MIGRADOR', 'POLINIZADOR' são 'tracos_adicionais'. NÃO as misture no texto das descrições.\n\n"
-        "3. PARTES:\n"
-        "   - Extraia as partes (ex: CASCO, PÉS).\n"
-        "   - Associe a durabilidade (ex: 30) e alcance para cada parte correspondente.\n\n"
-        "4. FORMATO DE SAÍDA:\n"
-        "   - Retorne APENAS UM único objeto JSON válido. Responda estritamente em formato JSON.\n\n"
-        f"{json.dumps(schema_json, ensure_ascii=False)}"
+        "Você é um extrator de dados especialista em fichas de RPG.\n"
+        "Sua tarefa é analisar o texto recebido e retornar ESTRITAMENTE "
+        "um objeto JSON válido que siga este esquema JSON Schema:\n\n"
+        f"{json.dumps(schema_json, ensure_ascii=False)}\n\n"
+        "REGRAS CRÍTICAS DE FORMATO:\n"
+        "1. Responda APENAS com o objeto JSON puro. NÃO use blocos de código com três crases (```json ... ```).\n"
+        "2. Sua resposta DEVE começar diretamente com o caractere '{' e terminar com '}'.\n"
+        "3. Inclua TODOS os campos do esquema no JSON. Se um campo não existir no texto, defina como null ou [] (lista vazia).\n"
+        "4. Em TRAÇOS e PARTES, capture o texto completo sem resumir.\n"
+        "5. 'Traços' e 'Traços Adicionais' são listas separadas — não misture.\n"
+        "6. Em PARTES, 'se_quebrado' é o texto após 'Se Quebrado(a):', se existir.\n"
+        "7. 'alcance' de uma Parte só existe se o card mostrar 'Alcance: N'."
     )
 
-    response = client.chat.completions.create(
-        model=MODELO_UNICO,
+    response = client_groq.chat.completions.create(
+        model=MODELO_GROQ,
         messages=[
             {"role": "system", "content": system_prompt},
             {
@@ -140,23 +161,17 @@ def extrair_json_com_groq(markdown_text: str) -> str:
         ],
         response_format={"type": "json_object"},
         temperature=0.1,
-        max_completion_tokens=30000
+        max_completion_tokens=3000
     )
     
     raw_json_str = response.choices[0].message.content.strip()
-
-    # 1. Remove marcadores markdown
+    
     if raw_json_str.startswith("```"):
         raw_json_str = raw_json_str.split("```")[1]
         if raw_json_str.startswith("json"):
             raw_json_str = raw_json_str[4:]
         raw_json_str = raw_json_str.strip()
 
-    # 2. Trata duplicação de JSON
-    if "}{" in raw_json_str:
-        raw_json_str = raw_json_str.split("}{")[0] + "}"
-
-    # 3. Valida e formata via Pydantic
     parsed_obj = FichaMonstro.model_validate_json(raw_json_str)
     return parsed_obj.model_dump_json(indent=2)
 
@@ -175,15 +190,14 @@ def processar_fluxo():
         nome_arquivo = pdf_path.name
         timestamp_atual = datetime.now().isoformat()
         
-        print(f"📄 Processando com MarkItDown + Groq ({MODELO_UNICO}): {nome_arquivo}...")
+        print(f"📄 Processando com GLM-OCR (Local) + Groq ({MODELO_GROQ}): {nome_arquivo}...")
         
         try:
-            # 1. OCR e preservação de estrutura via MarkItDown
-            result = md.convert(str(pdf_path))
-            markdown_content = result.text_content
+            # 1. OCR Visual via GLM-OCR Local
+            texto_ocr = extrair_texto_pdf_com_glm_ocr(pdf_path)
 
-            # 2. Conversão para JSON estruturado via Groq
-            json_resultado = extrair_json_com_groq(markdown_content)
+            # 2. Estruturação para JSON via Groq
+            json_resultado = extrair_json_com_groq(texto_ocr)
 
             # 3. Salva o JSON na pasta /seeds
             arquivo_seed = DIR_SEEDS / f"{pdf_path.stem}.json"

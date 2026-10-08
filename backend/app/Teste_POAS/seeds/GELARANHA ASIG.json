@@ -1,0 +1,74 @@
+{
+  "nome": "GELARANHA ASIG",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPE",
+      "valor": 1
+    },
+    {
+      "nome": "ARMAZENAR",
+      "valor": 3
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "Escondido",
+      "descricao": "Você fica .. CAMUFLAGEM(Custo: 1 Sucesso )"
+    },
+    {
+      "nome": "Presa",
+      "descricao": "de um alvo que Roube um Ingrediente, um Lanche ou uma criatura . LADRÃO(Custo: 1 Sucesso )"
+    },
+    {
+      "nome": "CONSTRUTOR",
+      "descricao": "Você pode preparar 3 vezes por turno.. PACIÊNCIA(Passiva)"
+    },
+    {
+      "nome": "Exposta",
+      "descricao": "Uma criatura a sua escolha fica . SENTIDOS AGUÇADOS.) (Custo: 1 Sucesso"
+    },
+    {
+      "nome": "MANUFATURAR",
+      "descricao": "Se passar, a próxima vez que uma criatura Faça um . TECE-TEIAS(Custo: 2 Ações)"
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "PELOS",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": "SENTIDOS AGUÇADOS",
+      "se_quebrado": "Você perde SENTIDOS AGUÇADOS."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": 20,
+      "alcance": "1",
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (). Essa causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver presente ou próxima, mire a última criatura que atacou sua teia, já que você prefere manter suas armadilhas de teia intactas. Seu instinto é preparar sua armadilha de teia e esperar pacientemente no seu centro. Se estiver confusa sobre como sua teia funciona, faça o que fizer sentido narrativamente.",
+  "dieta": [
+    "Monstros terrestres"
+  ],
+  "habitat": [
+    "Montanha (Geleca de Onagung, Wooda (Antigo Sen Che)",
+    "monstros voadores Selvagem"
+  ]
+}

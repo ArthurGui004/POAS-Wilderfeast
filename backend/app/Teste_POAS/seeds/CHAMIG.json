@@ -24,36 +24,59 @@
       "valor": 1
     }
   ],
-  "tracos": [],
+  "tracos": [
+    {
+      "nome": "ARMADURA NATURAL",
+      "descricao": "Você reduz à metade o Dano causado por   e  ."
+    },
+    {
+      "nome": "ELECTRORRECEPTIVIDADE",
+      "descricao": "Escondidas Criaturas não ganham Vantagem se atacarem você."
+    },
+    {
+      "nome": "GIGANTESCO",
+      "descricao": "Considere todas as criaturas como se estivessem a 3 Pernadas mais próximas de você do que ."
+    },
+    {
+      "nome": "RECUO",
+      "descricao": "Custo: 1 Sucesso ou. Você pode Levanta a guarda sem gastar Ações, mas não pode se ."
+    },
+    {
+      "nome": "ROBUSTO",
+      "descricao": "Nada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja .."
+    }
+  ],
   "tracos_adicionais": [
-    "ARMADURA NATURAL. (Passiva) Você reduz à metade o Dano causado por GOLPEAR PODEROSO e ATIRAR PODEROSO.",
-    "DEVORADOR",
-    "ELECTRORRECEPTIVIDADE. (Passiva) Criaturas Escondidas não ganham Vantagem se atacarem você.",
-    "DE ENERGIA",
-    "GIGANTESCO. (Passiva) Considere todas as criaturas como se estivessem a 3 Pernadas mais próximas de você do que realmente estão.",
+    "GOLPEAR",
+    "DEVORADOR DE ENERGIA",
     "MIGRADOR",
-    "RECUO. (Custo: 1 Sucesso PODEROSO ou PRECISO) Você pode Levanta a guarda sem gastar Ações, mas não pode se",
-    "POLINIZADOR. Mover até o início do seu próximo turno.",
-    "ROBUSTO. (Passiva) Nada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja Preso."
+    "POLINIZADOR"
   ],
   "partes": [
     {
-      "nome": "CASCO",
-      "durabilidade": 30,
-      "alcance": null,
-      "passiva": "Esta PARTE funciona como um Terreno adicional onde outras criaturas podem escalar, voar e correr. Durante seu turno, você pode gastar 2 Ações para ATRAVESSAR PODEROSO, balançando essa PARTE. Se fizer isso, 30 todas as criaturas em seu CASCO sem VOAR devem gastar [A] Vigor ou cairão no Chão.",
-      "se_quebrado": "Você fica Exposto e perde os Traços ARMADURA NATURAL e RECUO."
-    },
-    {
       "nome": "PÉS",
       "durabilidade": 30,
-      "alcance": "1 (GOLPEAR PODEROSO)",
-      "passiva": "Você não pode atacar criaturas que estejam em seu CASCO com essa PARTE. Se você se Mover, deve Atacar qualquer criatura no Chão com essa PARTE sem gastar Ações.",
-      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano. Essa PARTE mantém seu efeito Passivo."
+      "alcance": "1",
+      "passiva": "Você não pode atacar criaturas que estejam em seu ...",
+      "se_quebrado": null
+    },
+    {
+      "nome": "CASCO",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Todas as criaturas em seu ... devem gastar [A] Vigor ou cairão no Chão.",
+      "se_quebrado": "Você fica e perde os Traços ..."
+    },
+    {
+      "nome": "PARTE",
+      "durabilidade": null,
+      "alcance": "1",
+      "passiva": null,
+      "se_quebrado": null
     }
   ],
-  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura Expandida, já que a maioria dos alvos potenciais é tão pequena que você os ignora. Seu instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
-  "dieta": [],
+  "comportamento": "ExpostaExpandidaSe nenhuma criatura estiver , mire uma criatura , já que a maioria dos alvos potenciais é tão pequena que você os ignora. Seu instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
+  "dieta": null,
   "habitat": [
     "Deserto"
   ]

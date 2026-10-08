@@ -1,0 +1,82 @@
+{
+  "nome": "FAGURILA",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "AGARRAR",
+      "valor": 2
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 3
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CORPO EM CHAMAS",
+      "descricao": "Passiva"
+    },
+    {
+      "nome": "ESCALAR",
+      "descricao": "Passiva"
+    },
+    {
+      "nome": "AMEAÇAR",
+      "descricao": "Custo: 1 Sucesso"
+    }
+  ],
+  "tracos_adicionais": [
+    "Amedrontadas",
+    "PODEROSO",
+    "BRINCALHÃO",
+    "PROFESSOR"
+  ],
+  "partes": [
+    {
+      "nome": "PELOS",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": "Não causa Dano, a menos que você gaste 1 Ação para incendiá-lo.",
+      "se_quebrado": null
+    },
+    {
+      "nome": "UTENSÍLIO",
+      "durabilidade": 20,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": null
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}
