@@ -6,23 +6,54 @@
     "preciso": 0,
     "sagaz": 0
   },
-  "habilidades": [],
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 1
+    },
+    {
+      "nome": "ASSEGURAR",
+      "valor": 3
+    },
+    {
+      "nome": "CURAR",
+      "valor": 3
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 1
+    }
+  ],
   "tracos": [],
   "tracos_adicionais": [
-    ".GOLPEARPODEROSOATIRARPODEROSOVocê reduz à metade o Dano causado por   e  . ARMADURA NATURAL(Passiva)",
+    "ARMADURA NATURAL. (Passiva) Você reduz à metade o Dano causado por GOLPEAR PODEROSO e ATIRAR PODEROSO.",
     "DEVORADOR",
-    "Escondidas Criaturas  não ganham Vantagem se atacarem você.. ELECTRORRECEPTIVIDADE(Passiva)",
+    "ELECTRORRECEPTIVIDADE. (Passiva) Criaturas Escondidas não ganham Vantagem se atacarem você.",
     "DE ENERGIA",
-    "Considere todas as criaturas como se estivessem a 3 Pernadas mais próximas de você do que . GIGANTESCO(Passiva)",
-    "realmente estão.MIGRADOR",
-    "PODEROSO PRECISO Você pode Levanta a guarda sem gastar Ações, mas não pode se . RECUO(Custo: 1 Sucesso ou)",
-    "POLINIZADOR",
-    "Mover até o início do seu próximo turno.",
-    "PresoNada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja .. ROBUSTO(Passiva)"
+    "GIGANTESCO. (Passiva) Considere todas as criaturas como se estivessem a 3 Pernadas mais próximas de você do que realmente estão.",
+    "MIGRADOR",
+    "RECUO. (Custo: 1 Sucesso PODEROSO ou PRECISO) Você pode Levanta a guarda sem gastar Ações, mas não pode se",
+    "POLINIZADOR. Mover até o início do seu próximo turno.",
+    "ROBUSTO. (Passiva) Nada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja Preso."
   ],
-  "partes": [],
-  "comportamento": "ExpostaExpandidaSe nenhuma criatura estiver , mire uma criatura , já que a maioria dos alvos potenciais é tão pequena que você os ignora. Seu instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
-  "dieta": "N/A",
+  "partes": [
+    {
+      "nome": "CASCO",
+      "durabilidade": 30,
+      "alcance": null,
+      "passiva": "Esta PARTE funciona como um Terreno adicional onde outras criaturas podem escalar, voar e correr. Durante seu turno, você pode gastar 2 Ações para ATRAVESSAR PODEROSO, balançando essa PARTE. Se fizer isso, 30 todas as criaturas em seu CASCO sem VOAR devem gastar [A] Vigor ou cairão no Chão.",
+      "se_quebrado": "Você fica Exposto e perde os Traços ARMADURA NATURAL e RECUO."
+    },
+    {
+      "nome": "PÉS",
+      "durabilidade": 30,
+      "alcance": "1 (GOLPEAR PODEROSO)",
+      "passiva": "Você não pode atacar criaturas que estejam em seu CASCO com essa PARTE. Se você se Mover, deve Atacar qualquer criatura no Chão com essa PARTE sem gastar Ações.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano. Essa PARTE mantém seu efeito Passivo."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura Expandida, já que a maioria dos alvos potenciais é tão pequena que você os ignora. Seu instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
+  "dieta": [],
   "habitat": [
     "Deserto"
   ]
