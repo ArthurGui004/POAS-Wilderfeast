@@ -6,31 +6,29 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
-
-# --- AJUSTE DE PATH E IMPORTS ---
-import sys
-import os
-# Isso faz o Python enxergar a raiz do 'backend'
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-
-# Agora importamos de dentro da pasta 'app'
-from app.config import settings
 from app.database import Base
-import app.models  # Garante que os modelos sejam carregados
-# --------------------------------
+from app.config import settings
+import app.models
 
+# this is the Alembic Config object, which provides
+# access to the values within the .ini file in use.
 config = context.config
 
-# --- FORÇA A URL CORRETA ---
-config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
-# ---------------------------
-
+# Interpret the config file for Python logging.
+# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# --- APONTA PARA O METADATA DO BASE ---
+# add your model's MetaData object here
+# for 'autogenerate' support
+# from myapp import mymodel
+# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
-# --------------------------------------
+
+# other values from the config, defined by the needs of env.py,
+# can be acquired:
+# my_important_option = config.get_main_option("my_important_option")
+# ... etc.
 
 
 def run_migrations_offline() -> None:
@@ -45,7 +43,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    url = config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -65,6 +63,11 @@ def do_run_migrations(connection: Connection) -> None:
 
 
 async def run_async_migrations() -> None:
+    """In this scenario we need to create an Engine
+    and associate a connection with the context.
+
+    """
+
     connectable = async_engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
@@ -78,8 +81,7 @@ async def run_async_migrations() -> None:
 
 
 def run_migrations_online() -> None:
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    """Run migrations in 'online' mode."""
 
     asyncio.run(run_async_migrations())
 

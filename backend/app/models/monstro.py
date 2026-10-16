@@ -21,7 +21,7 @@ class Monstro(Base):
     vigor_base = Column(Integer, nullable=False)
     vigor_atual = Column(Integer, nullable=False)
     historia = Column(Text)
-    alvos = Column(Text)
+    comportamento = Column(Text)
     dieta = Column(String(100))
     habitat = Column(String(100))
     
