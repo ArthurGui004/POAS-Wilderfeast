@@ -8,20 +8,20 @@
   },
   "habilidades": [
     {
-      "nome": "ASSEGURAR",
-      "valor": 2
-    },
-    {
       "nome": "AGARRAR",
       "valor": 2
     },
     {
-      "nome": "CHAMAR",
+      "nome": "ASSEGURAR",
       "valor": 1
     },
     {
       "nome": "ATRAVESSAR",
       "valor": 1
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
     },
     {
       "nome": "ESTUDAR",
@@ -42,38 +42,29 @@
   ],
   "tracos": [
     {
+      "nome": "AMEAÇAR 2",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Criaturas à sua escolha ficam Amedrontadas."
+    },
+    {
       "nome": "CORPO EM CHAMAS",
-      "descricao": "Passiva"
+      "descricao": "(Passiva) No começo de cada rodada, toda criatura a sua escolha que estiver a 0 Pernada de você sofre 2 de Dano. Além disso, se você for Preso por uma PARTE, essa PARTE fica Queimada. Por fim, nenhuma das suas PARTES podem ficar Queimadas."
     },
     {
       "nome": "ESCALAR",
-      "descricao": "Passiva"
-    },
-    {
-      "nome": "AMEAÇAR",
-      "descricao": "Custo: 1 Sucesso"
+      "descricao": "(Passiva) Você pode escalar sem Desvantagem."
     }
   ],
   "tracos_adicionais": [
-    "Amedrontadas",
-    "PODEROSO",
     "BRINCALHÃO",
     "PROFESSOR"
   ],
   "partes": [
     {
       "nome": "PELOS",
-      "durabilidade": 20,
+      "durabilidade": null,
       "alcance": null,
-      "passiva": "Não causa Dano, a menos que você gaste 1 Ação para incendiá-lo.",
-      "se_quebrado": null
-    },
-    {
-      "nome": "UTENSÍLIO",
-      "durabilidade": 20,
-      "alcance": null,
-      "passiva": null,
-      "se_quebrado": null
+      "passiva": "Seu CORPO EM CHAMAS não causa Dano, a menos que você gaste 1 Ação para incendiá-lo. Cada vez que usar AMEAÇAR 2, aumente o Dano causado por CORPO EM CHAMAS em 1 até o final da Jornada ou até que essa PARTE seja Quebrada. Se você causar Dano a um feral com CORPO EM CHAMAS, o UTENSÍLIO dele fica Queimado.",
+      "se_quebrado": "Você perde CORPO EM CHAMAS."
     }
   ],
   "comportamento": null,

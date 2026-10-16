@@ -1,0 +1,33 @@
+{
+  "nome": "KALA-KALA",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 0,
+    "preciso": 1,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 3
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [],
+  "tracos_adicionais": [],
+  "partes": [],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

@@ -1,0 +1,58 @@
+{
+  "nome": "Satra",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 2,
+    "preciso": 1,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 1
+    },
+    {
+      "nome": "CURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [],
+  "tracos_adicionais": [
+    "BIOLUMINESCÊNCIA 3. (Custo: 1 Sucesso SAGAZ) Uma criatura à sua escolha fica Confusa 3.",
+    "CAMUFLAGEM. (Custo: 1 Sucesso SAGAZ) Você fica Escondido.",
+    "PACIÊNCIA. (Passiva) Você pode Preparar até 3 vezes por turno.",
+    "PREDADOR DE EMBOSCADA. (Passiva) Se você Atacar enquanto estiver Escondido, causa o dobro de Dano.",
+    "VENENO. (Custo: 1 Sucesso em ATIRAR ou GOLPEAR) A criatura atingida por seu ATIRAR ou GOLPEAR fica Envenenada."
+  ],
+  "partes": [
+    {
+      "nome": "BARBILHÕES",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde PREDADOR DE EMBOSCADA e fica Exposto."
+    },
+    {
+      "nome": "CAUDA",
+      "durabilidade": null,
+      "alcance": "2 (GOLPEAR SAGAZ)",
+      "passiva": "Você não pode aplicar seu bônus de HABILIDADE quando Atacar com esta PARTE.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR SAGAZ). Esta PARTE causa metade do Dano. Você não pode aplicar seu bônus de HABILIDADE quando Atacar com esta PARTE."
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

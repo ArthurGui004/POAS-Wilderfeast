@@ -1,0 +1,54 @@
+{
+  "nome": "HUTANGWA",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 0,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "AGARRAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 1
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [],
+  "tracos_adicionais": [
+    "PERSEGUIÇÃO DO PREDADOR. (Passiva) Se você se Mover em direção a uma criatura, ganhe Vantagem ao Ataca-lo até o final do seu turno.",
+    "SENTIDOS AGUÇADOS. (Custo: 1 Sucesso PRECISO) Uma criatura a sua escolha fica Exposta.",
+    "VOAR 3. (Passiva) Você pode voar. Além disso, caso se Mova enquanto voa, você pode se Mover 2 Pernadas em vez de 1. Enfim, você tem Vantagem em todos seus ATRAVESSAR enquanto estiver voando.",
+    "VELOCIDADE. (Custo: 1 Sucesso LIGEIRO) Você pode se Mover sem gastar uma Ação."
+  ],
+  "partes": [
+    {
+      "nome": "ASAS",
+      "durabilidade": 10,
+      "alcance": null,
+      "passiva": null,
+      "se_quebrado": "Você perde VOAR 3."
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

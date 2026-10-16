@@ -1,0 +1,69 @@
+{
+  "nome": "Ziziwen",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CHEIRO DE SANGUE",
+      "descricao": "(Passiva) Você tem Vantagem em todos os Testes durante a primeira rodada da Caçada se o outro lado tiver uma criatura Ferida."
+    },
+    {
+      "nome": "REFLEXOS NATURAIS",
+      "descricao": "(Passiva) Você diminuí à metade o Dano que sofre de GOLPEAR LIGEIRO e de ATIRAR LIGEIRO."
+    },
+    {
+      "nome": "SANGUESSUGA",
+      "descricao": "(Custo: 3 Ações) Faça um GOLPEAR PRECISO contra uma criatura a 1 Pernada de distância. Se acertar, você recebe um nível em um dos ESTILOS, HABILIDADES ou TRAÇOS da criatura até o final da Jornada (a criatura NÃO precisa ter mais níveis na característica escolhida do que você). Se você usar esse TRAÇO de novo, troque o nível recebido anteriormente pelo novo."
+    },
+    {
+      "nome": "VOAR 2.",
+      "descricao": "(Passiva) Você pode voar. Além disso, caso se Mova enquanto voa, você pode se Mover até 2 Pernadas em vez de 1."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "ABDÔMEN",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Cada vez que usar SANGUESSUGA ou um Tração não Passivo obtido com Sanguessuga, cada criatura a 1 Pernada fica Amedrontada.",
+      "se_quebrado": "Você fica Exposto."
+    },
+    {
+      "nome": "ASAS",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Esta PARTE não tem efeito adicional.",
+      "se_quebrado": "Você perde REFLEXOS NATURAIS e 1 nível em VOAR."
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

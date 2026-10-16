@@ -1,0 +1,16 @@
+{
+  "nome": "MONGPO",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 3
+  },
+  "habilidades": [],
+  "tracos": [],
+  "tracos_adicionais": [],
+  "partes": [],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

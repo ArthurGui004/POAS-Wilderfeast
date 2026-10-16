@@ -1,0 +1,50 @@
+{
+  "nome": "KAKWARI",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 3,
+    "preciso": 0,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 3
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "AMEAÇAR 2",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Criaturas à sua escolha ficam Amedrontadas."
+    },
+    {
+      "nome": "OSTENTAR",
+      "descricao": "(Custo: 2 Ações) Faça um EXIBIR PODEROSO. Se passar, todas as criaturas à sua escolha restauram [A] em Vigor."
+    },
+    {
+      "nome": "CATAR PIOLHO",
+      "descricao": ""
+    },
+    {
+      "nome": "CONSTRUTOR DE NINHO",
+      "descricao": ""
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

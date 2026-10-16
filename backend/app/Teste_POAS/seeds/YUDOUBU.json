@@ -1,0 +1,72 @@
+{
+  "nome": "YUDOUBU",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ATIRAR",
+      "valor": 3
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "ARMAZENAR",
+      "valor": 2
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 2
+    }
+  ],
+  "tracos": [],
+  "tracos_adicionais": [
+    "EXPANDIR. (Custo: 1 Ação) Você fica Expandido.",
+    "MIRA INSTINTIVA. (Custo: 1 Sucesso em ATIRAR) A criatura atingida por seu ATIRAR fica Atordoada.",
+    "NADAR. (Passiva) Você pode nadar sem Desvantagem.",
+    "NÃO-ME-TOQUE 3. (Passiva) Se uma criatura fizer um AGARRAR ou GOLPEAR contra você, cause 3 de Dano a ela."
+  ],
+  "partes": [
+    {
+      "nome": "BARRIGA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Se você se Mover no Chão, pode escorregar até 2 Pernadas para longe em vez de 1.",
+      "se_quebrado": "Você fica Exposto."
+    },
+    {
+      "nome": "BICO",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR LIGEIRO)",
+      "passiva": "Se você causar Dano com esta PARTE, cause Dano à Parte em vez disso. Se você quebrar uma PARTE com esta PARTE, jogue seu alvo 3 Pernadas para longe.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Esta PARTE causa metade do Dano."
+    },
+    {
+      "nome": "BOCHECHAS",
+      "durabilidade": null,
+      "alcance": "3 (ATIRAR SAGAZ)",
+      "passiva": "Você só pode Atacar com esta PARTE enquanto estiver Expandido. Depois de realizar um ATIRAR com esta PARTE (acertando ou não), você perde Expandido e pode escorregar 1 Pernada para longe de seu alvo.",
+      "se_quebrado": "Esta PARTE não faz nada."
+    },
+    {
+      "nome": "ESPINHOS",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Você só pode usar NÃO-ME-TOQUE 3 enquanto estiver Expandido. Criaturas feridas por NÃO-ME-TOQUE 3 também ficam Envenenado 3.",
+      "se_quebrado": "Você perde NÃO-ME-TOQUE 3."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo uma criatura com uma PARTE não que você não consegue diferenciar o movimento de uma garra de caranguejo de um Utensílio de arkaicação. Se instinto é escorregar pelas planícias enlameadas como um balão vazando, causando o máximo de caos enquanto passa. Se estiver cercado por criaturas hostis, tente terminar seu turno Expandido, já que isso desencoraja retaliações enquanto você foca sua mira para realizar outro ATIRAR.",
+  "dieta": [
+    "Monstros aquáticos (Ostra Real, Pratanguejo, Camarão-sabão, Solguejo)"
+  ],
+  "habitat": [
+    "Praias (Ilba Berço, Planícias Ensaboadas)",
+    "Deserto (Lago Esporádico)"
+  ]
+}

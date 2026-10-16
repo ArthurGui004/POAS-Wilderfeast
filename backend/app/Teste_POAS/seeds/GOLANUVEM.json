@@ -1,0 +1,77 @@
+{
+  "nome": "GOLANUVEM",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 3,
+    "preciso": 1,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "CHAMAR",
+      "valor": 2
+    },
+    {
+      "nome": "CURAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "AMEAÇAR",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Uma criatura à sua escolha fica Amedrontada."
+    },
+    {
+      "nome": "CABEÇADA",
+      "descricao": "(Custo: 1 Sucesso) Depois de atacar uma criatura, empurre-a para 1 Pernada de voce. Se a criatura estiver escalando ou voando, ela cai no Chão."
+    },
+    {
+      "nome": "EXPANDIR",
+      "descricao": "(Custo: 1 Ação) Você se torna Expandido."
+    },
+    {
+      "nome": "FOTOSSÍNTESE",
+      "descricao": "(Custo: 3 Ações) Se você tiver acesso ao Céu, recupere seu Vigor ao máximo."
+    },
+    {
+      "nome": "ROBUSTO",
+      "descricao": "(Passiva) Nada pode empurrá-lo ou puxá-lo, a menos que você permita ou esteja Preso."
+    }
+  ],
+  "tracos_adicionais": [
+    "DEFENSOR DO REBANHO",
+    "FERMENTADOR",
+    "MIGRADOR"
+  ],
+  "partes": [
+    {
+      "nome": "GOLA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Você só pode usar FOTOSSÍNTESE enquanto estiver Expandido.",
+      "se_quebrado": "Você perde acesso a EXPANDIR e FOTOSSÍNTESE e não pode mais se tornar Expandido."
+    },
+    {
+      "nome": "PÉS",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR PRECISO)",
+      "passiva": "Se Atacar com essa PARTE e acertar, você também causa Dano [A] a todas as criaturas da sua escolha que estiverem a 0 Pernada do seu alvo.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

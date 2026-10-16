@@ -1,0 +1,69 @@
+{
+  "nome": "RAKUZAR",
+  "estilos": {
+    "ligeiro": 1,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "CURAR",
+      "valor": 1
+    },
+    {
+      "nome": "EXIBIR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "EXPANDIR",
+      "descricao": "(Custo: 1 Ação) Você fica Expandido."
+    },
+    {
+      "nome": "EXPLOSÃO SÔNICA",
+      "descricao": "(Passiva) Quando Atacar, você pode CHAMAR em vez de ATIRAR ou GOLPEAR."
+    },
+    {
+      "nome": "OSTENTAR",
+      "descricao": "(Custo: 2 Ações) Faça um EXIBIR PODEROSO. Se passar, todas as criaturas à sua escolha recuperam [A] de Vigor."
+    },
+    {
+      "nome": "REGENERAÇÃO",
+      "descricao": "(Custo: 1 Sucesso) Recupere 1 de Durabilidade a qualquer de suas PARTES."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "BARRIGA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Enquanto estiver Expandido, você recebe +2 CHAMAR e pode receber níveis em PODEROSO iguais ao seu nível em SAGAZ.",
+      "se_quebrado": "Você remove EXPANDIR e não pode ficar Expandido."
+    },
+    {
+      "nome": "CAUDA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Se sofrer Dano, você pode reduzir a Durabilidade desta PARTE a 0 para não sofrer Dano.",
+      "se_quebrado": "Esta PARTE não faz nada."
+    },
+    {
+      "nome": "DENTES",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR).",
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, escolha como alvo a última criatura a fazer um CHAMAR, já que você duela com rivais de sua própria espécie por meio do som. Seu instinto é ficar Expandido o mais rápido e o máximo possível, para que possa usar sua voz bombástica para forçar seus inimigos à submissão com seus rugidos. Suas Partes são frágeis, mas elas só precisam de 1 de Durabilidade para não estarem mais quebradas. Priorize usar REGENERAÇÃO em sua BARRIGA, para que possa retornar à sua forma Expandida carregada de hormônios.",
+  "dieta": [
+    "GENERALISTA",
+    "Monstros voadores (Asarremo, Votra), folhagem (Palma de Cacto)"
+  ],
+  "habitat": [
+    "Deserto"
+  ]
+}

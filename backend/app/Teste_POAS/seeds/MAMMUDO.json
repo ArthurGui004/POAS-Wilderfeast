@@ -1,0 +1,68 @@
+{
+  "nome": "MAMMUDO",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 3,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 2
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "ARMADURA NATURAL",
+      "descricao": "(Passiva) Você reduz à metade o Dano causado por GOLPEAR PODEROSO e ATIRAR PODEROSO."
+    },
+    {
+      "nome": "ESCAVAR",
+      "descricao": "(Passiva) Você pode cavar."
+    },
+    {
+      "nome": "INCANSÁVEL",
+      "descricao": "(Custo: 1 Sucesso PODEROSO) Remove <H> Fadigado e recupera <H> Vigor."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "(Custo: 1 Ação) Escolha uma criatura a até 3 Pernadas. Você se Move a até 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu (Isso não conta como gasto de Vigor)."
+    },
+    {
+      "nome": "RECUO",
+      "descricao": "(Custo: 1 Sucesso PODEROSO ou PRECISO ) Você pode Levantar a Guarda sem gastar Ações, mas você não pode se Mover até o início do seu próximo turno."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "ESCAMAS",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR PODEROSO)",
+      "passiva": "Você só pode atacar com essa PARTE imediatamente após fazer uma INVESTIDA. Se você Atacar com essa PARTE e acertar, pode empurrar seu alvo para 3 Pernadas longe de você.",
+      "se_quebrado": "Você perde ARMADURA NATURAL."
+    },
+    {
+      "nome": "GARRAS",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR PRECISO)",
+      "passiva": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Essa PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Exposta, mire na última criatura que comeu algo doce, já que você está sempre curioso a respeito de fontes de açúcar. Se instinto é rolar como uma bola, usar INVESTIDA contra seu alvo e derrubá-lo como um pino de boliche; depois disso, resguardar-se com RECUO e INCANSÁVEL. Você tende a realizar um turno completo perto do fim da rodada, de modo que, após colidir com seu alvo, você pode escolher um novo alvo com segurança, enquanto o anterior ainda está correndo na sua direção para voltar à distância corpo a corpo. Mesmo enfurecido, você só ataca com suas GARRAS como último recurso.",
+  "dieta": [
+    "Monstros terrestres (Brasanguejo)",
+    "néctar (Néctar de Taçaflauta)",
+    "mel (Balsamel)",
+    "minerais (Argilafurda)"
+  ],
+  "habitat": [
+    "Arvoredo (Pomar Sen To, Terras Chafurdantes, Bosque das Testemunhas)"
+  ]
+}

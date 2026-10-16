@@ -50,7 +50,7 @@ class FichaMonstro(BaseModel):
 # ==========================================
 # 2. Configurações de Diretórios e APIs
 # ==========================================
-os.environ["GROQ_API_KEY"] = "API"
+os.environ["GROQ_API_KEY"] = "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"
 
 DIR_DOCS = Path("./app/Teste_POAS/docs")
 DIR_PROCESSADO = DIR_DOCS / ".processado"
@@ -140,7 +140,8 @@ def extrair_json_com_groq(markdown_text: str) -> str:
         ],
         response_format={"type": "json_object"},
         temperature=0.1,
-        max_completion_tokens=30000
+        max_completion_tokens=30000,
+        reasoning_effort='high'
     )
     
     raw_json_str = response.choices[0].message.content.strip()

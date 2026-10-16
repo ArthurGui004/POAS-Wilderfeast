@@ -1,0 +1,62 @@
+{
+  "nome": "SHAKOI",
+  "estilos": {
+    "ligeiro": 3,
+    "poderoso": 0,
+    "preciso": 2,
+    "sagaz": 0
+  },
+  "habilidades": [
+    {
+      "nome": "ASSEGURAR",
+      "valor": 2
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 2
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 1
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 2
+    },
+    {
+      "nome": "PROCURAR",
+      "valor": 1
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "ELETRORRECEPTIVIDADE",
+      "descricao": "(Passiva) Criaturas Escondidas não ganham Vantagem se Atacarem você."
+    },
+    {
+      "nome": "INVESTIDA",
+      "descricao": "(Custo: 1 Ação) Escolha uma criatura a até 3 Pernadas. Você se Move a 0 Pernada da criatura e causa Dano a ela e a si mesmo igual ao número de Pernadas que você se Moveu (Isso não conta como gastar Vigor)."
+    },
+    {
+      "nome": "VELOCIDADE",
+      "descricao": "(Custo: 1 Sucesso LIGEIRO) Você pode se Mover sem gastar uma Ação."
+    },
+    {
+      "nome": "NADAR 3",
+      "descricao": "(Passiva) Você pode nadar sem Desvantagem. Além disso, caso se Mova enquanto nada, você pode se Mover até 2 Pernadas em vez de 1. Por fim, você tem Vantagem em todo ATRAVESSAR enquanto nada."
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [
+    {
+      "nome": "BICO",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR PRECISO ou GOLPEAR LIGEIRO)",
+      "passiva": "Se fizer uma INVESTIDA, você pode Atacar com esta PARTE sem gastar Ações. Se não acertar, você se Move 3 Pernadas para longe de seu alvo.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR LIGEIRO). Esta PARTE causa metade do Dano."
+    }
+  ],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

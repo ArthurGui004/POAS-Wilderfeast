@@ -1,0 +1,54 @@
+{
+  "nome": "SYOWARI",
+  "estilos": {
+    "ligeiro": 2,
+    "poderoso": 0,
+    "preciso": 0,
+    "sagaz": 3
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 3
+    },
+    {
+      "nome": "ATIRAR",
+      "valor": 1
+    },
+    {
+      "nome": "ATRAVESSAR",
+      "valor": 1
+    },
+    {
+      "nome": "CURAR",
+      "valor": 1
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 3
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CHEIRO DE SANGUE",
+      "descricao": "(Passiva) Você tem Vantagem em todos os Testes durante a primeira rodada da Caçada se o outro lado tiver uma criatura Ferida."
+    },
+    {
+      "nome": "LADRÃO",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Roube um Ingrediente, um Lanche ou uma criatura Presa de um alvo que esteja a até 1 Pernada de você. (Você escolhe se a criatura Presa roubada por você agora está Presa por você ou livre.)"
+    }
+  ],
+  "tracos_adicionais": [],
+  "partes": [],
+  "comportamento": null,
+  "dieta": null,
+  "habitat": []
+}

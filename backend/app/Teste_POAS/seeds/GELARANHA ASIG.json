@@ -8,16 +8,16 @@
   },
   "habilidades": [
     {
+      "nome": "ARMAZENAR",
+      "valor": 3
+    },
+    {
       "nome": "ESTUDAR",
       "valor": 2
     },
     {
-      "nome": "GOLPE",
+      "nome": "GOLPEAR",
       "valor": 1
-    },
-    {
-      "nome": "ARMAZENAR",
-      "valor": 3
     },
     {
       "nome": "MANUFATURAR",
@@ -26,49 +26,56 @@
   ],
   "tracos": [
     {
-      "nome": "Escondido",
-      "descricao": "Você fica .. CAMUFLAGEM(Custo: 1 Sucesso )"
+      "nome": "CAMUFLAGEM",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Você fica Escondido."
     },
     {
-      "nome": "Presa",
-      "descricao": "de um alvo que Roube um Ingrediente, um Lanche ou uma criatura . LADRÃO(Custo: 1 Sucesso )"
+      "nome": "LADRÃO",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Roube um Ingrediente, um Lanche ou uma criatura Presa de um alvo que estéja a até 1 Pernada de você. (Você escolhe se a criatura Presa roubada por você agora está Presa por você ou livre.)"
     },
     {
-      "nome": "CONSTRUTOR",
-      "descricao": "Você pode preparar 3 vezes por turno.. PACIÊNCIA(Passiva)"
+      "nome": "PACIÊNCIA",
+      "descricao": "(Passiva) Você pode preparar 3 vezes por turno."
     },
     {
-      "nome": "Exposta",
-      "descricao": "Uma criatura a sua escolha fica . SENTIDOS AGUÇADOS.) (Custo: 1 Sucesso"
+      "nome": "SENTIDOS AGUÇADOS",
+      "descricao": "(Custo: 1 Sucesso PRECISO) Uma criatura a sua escolha fica Exposta."
     },
     {
-      "nome": "MANUFATURAR",
-      "descricao": "Se passar, a próxima vez que uma criatura Faça um . TECE-TEIAS(Custo: 2 Ações)"
+      "nome": "TECE-TEIAS",
+      "descricao": "(Custo: 2 Ações) Faça um MANUFATURAR SAGAZ. Se passar, a próxima vez que uma criatura hostil se Mover em sua direção, ela sofrerá [A] Dano à Parte e não pode se Mover até o início do próximo turno."
     }
   ],
   "tracos_adicionais": [],
   "partes": [
     {
       "nome": "PELOS",
-      "durabilidade": 10,
+      "durabilidade": null,
       "alcance": null,
-      "passiva": "SENTIDOS AGUÇADOS",
+      "passiva": "Você pode gastar 1 Sucesso em um MANUFATURAR para usar SENTIDOS AGUÇADOS.",
       "se_quebrado": "Você perde SENTIDOS AGUÇADOS."
     },
     {
       "nome": "PERNAS",
-      "durabilidade": 20,
-      "alcance": "1",
+      "durabilidade": null,
+      "alcance": "1 (GOLPEAR PRECISO)",
       "passiva": null,
-      "se_quebrado": "Alcance: 1 (). Essa causa metade do Dano."
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "TEIA",
+      "durabilidade": null,
+      "alcance": null,
+      "passiva": "Cada vez que você usa TECE-TEIAS, crie uma nova instância dessa PARTE com sua própria Durabilidade separada. Criaturas que sofrem Dano à Parte do TECE-TEIAS também ficam Presas por essa PARTE, mas não são puxadas para 0 Pernada na sua direção. Criaturas podem Atacar essa PARTE de qualquer distância, mas se o fizeram, você não perde Vigor.",
+      "se_quebrado": "A instância de TECE-TEIAS representada por essa PARTE acaba."
     }
   ],
-  "comportamento": "Se nenhuma criatura estiver presente ou próxima, mire a última criatura que atacou sua teia, já que você prefere manter suas armadilhas de teia intactas. Seu instinto é preparar sua armadilha de teia e esperar pacientemente no seu centro. Se estiver confusa sobre como sua teia funciona, faça o que fizer sentido narrativamente.",
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a última criatura que atacou sua TEIA, já que você prefere manter suas armadilhas de teia intactas. Seu instinto é preparar sua armadilha de teia e esperar pacientemente no seu centro. Se estiver confusa sobre como sua TEIA funciona, faça o que fizer sentido narrativamente falando.",
   "dieta": [
-    "Monstros terrestres"
+    "Monstros terrestres (Geleca de Onagung, Wooda Selvagem)",
+    "monstros voadores"
   ],
   "habitat": [
-    "Montanha (Geleca de Onagung, Wooda (Antigo Sen Che)",
-    "monstros voadores Selvagem"
+    "Montanha (Antigo Sen Che)"
   ]
 }
