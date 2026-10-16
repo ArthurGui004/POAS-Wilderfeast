@@ -1,14 +1,16 @@
-# models/monstro.py
 from sqlalchemy import Column, Integer, String, Text, Boolean, ForeignKey, Table, Enum as SQLEnum
 from sqlalchemy.orm import relationship
 from app.database import Base
 from app.enums import CategoriaMonstro
+
+
 
 monstro_traco_assoc = Table(
     'monstro_traco', Base.metadata,
     Column('monstro_id', Integer, ForeignKey('monstro.id', ondelete="CASCADE"), primary_key=True),
     Column('traco_id', Integer, ForeignKey('traco.id', ondelete="CASCADE"), primary_key=True)
 )
+
 
 class Monstro(Base):
     __tablename__ = 'monstro'
@@ -28,6 +30,7 @@ class Monstro(Base):
     tracos = relationship("Traco", secondary=monstro_traco_assoc)
     partes = relationship("MonstroParte", back_populates="monstro", cascade="all, delete-orphan")
 
+
 class MonstroEstilo(Base):
     __tablename__ = 'monstro_estilo'
     monstro_id = Column(Integer, ForeignKey('monstro.id', ondelete="CASCADE"), primary_key=True)
@@ -37,6 +40,7 @@ class MonstroEstilo(Base):
     monstro = relationship("Monstro", back_populates="estilos")
     estilo = relationship("Estilo")
 
+
 class MonstroHabilidade(Base):
     __tablename__ = 'monstro_habilidade'
     monstro_id = Column(Integer, ForeignKey('monstro.id', ondelete="CASCADE"), primary_key=True)
@@ -45,6 +49,7 @@ class MonstroHabilidade(Base):
     
     monstro = relationship("Monstro", back_populates="habilidades")
     habilidade = relationship("Habilidade")
+
 
 class MonstroParte(Base):
     __tablename__ = 'monstro_parte'
@@ -59,4 +64,3 @@ class MonstroParte(Base):
     se_quebrado = Column(Boolean, default=False)
     
     monstro = relationship("Monstro", back_populates="partes")
-    tecnica = relationship("Tecnica")

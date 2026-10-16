@@ -1,5 +1,9 @@
 {
   "nome": "CHAMIG",
+  "categoria": "Jovem",
+  "vigor_base": 30,
+  "vigor_atual": 30,
+  "história": "Adicionar depois",
   "estilos": {
     "ligeiro": 0,
     "poderoso": 4,
@@ -67,7 +71,7 @@
       "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano. Essa PARTE mantém seu efeito Passivo."
     }
   ],
-  "comportamento": "Se nenhuma criatura estiver Exposta, mire uma criatura Expandida, já que a maioria dos alvos potenciais é tão pequena que você os ignora. Se instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
+  "alvos": "Se nenhuma criatura estiver Exposta, mire uma criatura Expandida, já que a maioria dos alvos potenciais é tão pequena que você os ignora. Se instinto é esmagar tudo no seu caminho. Antes mesmo de começar A Caçada, considere que está em fase livre. Em termos de estatísticas, você apresenta um combate difícil, mas gerenciável, no qual os jogadores se envolverão taticamente. Como uma série de Desafios personalizados e cenários narrativos, incorpore seu tamanho e escala inspiradores. Nenhuma das abordagens está errada, mas uma pode ser melhor que outra para o tom que você está tentando alcançar na narrativa.",
   "dieta": [
     "N/A"
   ],

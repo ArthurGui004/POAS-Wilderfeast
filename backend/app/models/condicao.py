@@ -2,6 +2,7 @@ from sqlalchemy import String, Table, Column, Integer, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database import Base
 
+
 feral_condicao = Table(
     "feral_condicao",
     Base.metadata,

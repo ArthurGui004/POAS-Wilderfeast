@@ -3,12 +3,14 @@ from sqlalchemy.orm import relationship
 from app.models.condicao import feral_condicao
 from app.database import Base
 
+
 # Tabela de Associação N:N pura
 feral_traco_assoc = Table(
     'feral_traco', Base.metadata,
     Column('feral_id', Integer, ForeignKey('feral.id', ondelete="CASCADE"), primary_key=True),
     Column('traco_id', Integer, ForeignKey('traco.id', ondelete="CASCADE"), primary_key=True)
 )
+
 
 class Feral(Base):
     __tablename__ = 'feral'
@@ -39,6 +41,7 @@ class Feral(Base):
     tracos = relationship("Traco", secondary=feral_traco_assoc)
     inventario = relationship("FeralInventario", back_populates="feral", cascade="all, delete-orphan")
 
+
 # Classes de Associação com colunas extras
 class FeralEstilo(Base):
     __tablename__ = 'feral_estilo'
@@ -48,6 +51,7 @@ class FeralEstilo(Base):
     
     feral = relationship("Feral", back_populates="estilos")
     estilo = relationship("Estilo")
+
 
 class FeralHabilidade(Base):
     __tablename__ = 'feral_habilidade'
