@@ -6,17 +6,19 @@ Pipeline Dinâmico para Traços:
 4. Insere/Atualiza os dados diretamente no Banco via SQLAlchemy.
 """
 
-import os
 import json
+import os
 from pathlib import Path
 from typing import List
-from pydantic import BaseModel
-from markitdown import MarkItDown
+
 from groq import Groq
+from markitdown import MarkItDown
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from ..database import AsyncSessionLocal, engine, Base
-from ..models.catalogos import Traco
-from ..schemas import TracoBase
+
+from app.database import AsyncSessionLocal, Base, engine
+from app.models.catalogos import Traco
+from app.schemas import TracoBase
 
 class ListaTracos(BaseModel):
     tracos: List[TracoBase]
