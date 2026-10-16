@@ -52,7 +52,7 @@ class FichaMonstro(BaseModel):
 # ==========================================
 # 2. Configurações de Diretórios, API e IA Local
 # ==========================================
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = "API"
 
 DIR_DOCS = Path("./docs")
 DIR_PROCESSADO = DIR_DOCS / ".processado"
