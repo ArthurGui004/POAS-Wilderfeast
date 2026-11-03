@@ -117,7 +117,7 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
         db.add(monstro)
 
     # Atributos básicos
-    monstro.categoria = _parse_categoria(dados.get("categoria"))
+    monstro.categoria = "Adulto"
     monstro.vigor_base = _to_int(dados.get("vigor_base") or 30, 30)
     monstro.vigor_atual = _to_int(dados.get("vigor_atual") or monstro.vigor_base, monstro.vigor_base)
     monstro.historia = dados.get("historia")

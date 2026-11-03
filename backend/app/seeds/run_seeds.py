@@ -20,9 +20,9 @@ from app.seeds.seed_tracos import criar_tracos_padrao
 ETAPAS = [
     ("Estilos", criar_estilos_padrao),
     ("Habilidades", criar_habilidades_padrao),
-    ("Condições", criar_condicoes_padrao),
     ("Traços", criar_tracos_padrao),
     # ("Monstros", criar_monstros_padrao),
+    ("Condições", criar_condicoes_padrao),
 ]
 
 
