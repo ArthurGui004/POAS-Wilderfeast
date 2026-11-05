@@ -72,7 +72,7 @@ async def criar_tracos_padrao(tracos: list[TracoCreate]):
         print(f"Base de dados atualizada: {inseridos} inseridos, {atualizados} atualizados.")
 
 
-async def _main():
+async def pipeline_criar_tracos():
     print("A extrair dados do PDF...")
     lista_tracos = extrair_tracos_do_pdf("app/seeds/extract_tracos/docs/Traços.pdf")
     
@@ -85,4 +85,4 @@ async def _main():
 
 
 if __name__ == "__main__":
-    asyncio.run(_main())
+    asyncio.run(pipeline_criar_tracos())

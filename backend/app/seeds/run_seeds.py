@@ -14,13 +14,13 @@ from app.seeds.seed_condicao import criar_condicoes_padrao
 from app.seeds.seed_estilo import criar_estilos_padrao
 from app.seeds.seed_habilidade import criar_habilidades_padrao
 from app.seeds.seed_monstro import criar_monstros_padrao
-from app.seeds.seed_tracos import criar_tracos_padrao
+from app.seeds.seed_tracos import pipeline_criar_tracos
 
 # Ordem importa: monstros dependem de estilos, habilidades, traços e técnicas.
 ETAPAS = [
     ("Estilos", criar_estilos_padrao),
     ("Habilidades", criar_habilidades_padrao),
-    ("Traços", criar_tracos_padrao),
+    ("Traços", pipeline_criar_tracos),
     # ("Monstros", criar_monstros_padrao),
     ("Condições", criar_condicoes_padrao),
 ]
