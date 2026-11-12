@@ -44,5 +44,4 @@ Crie um `.env` na pasta `backend/` se quiser sobrescrever os padrões:
 
 ```
 SECRET_KEY=troque-por-um-segredo-forte
-DATABASE_URL=sqlite+aiosqlite:///./wilderfeast.db
 ```

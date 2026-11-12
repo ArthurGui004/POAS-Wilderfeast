@@ -5,7 +5,7 @@ from app.config import settings
 from app.seeds.seed_condicao import criar_condicoes_padrao
 from app.seeds.seed_estilo import criar_estilos_padrao
 from app.seeds.seed_habilidade import criar_habilidades_padrao
-from app.seeds.seed_tracos import criar_tracos_padrao
+from app.seeds.seed_tracos import pipeline_criar_tracos
 from app.seeds.seed_monstro import criar_monstros_padrao
 from app.routers import auth_router, feral_router, monstro_router
 
@@ -14,7 +14,7 @@ async def lifespan(app: FastAPI):
     await criar_condicoes_padrao()
     await criar_estilos_padrao()
     await criar_habilidades_padrao()
-    await criar_tracos_padrao()
+    await pipeline_criar_tracos()
     # await criar_monstros_padrao()
     yield
 
