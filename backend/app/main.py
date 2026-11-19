@@ -15,7 +15,7 @@ async def lifespan(app: FastAPI):
     await criar_estilos_padrao()
     await criar_habilidades_padrao()
     await pipeline_criar_tracos()
-    # await criar_monstros_padrao()
+    await criar_monstros_padrao()
     yield
 
 app = FastAPI(

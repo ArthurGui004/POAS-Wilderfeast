@@ -55,14 +55,14 @@
   "partes": [
     {
       "nome": "CASCO",
-      "durabilidade": null,
+      "durabilidade": 30,
       "alcance": null,
       "passiva": "Esta PARTE funciona como um Terreno adicional onde outras criaturas podem escalar, voar e correr. Durante seu turno, você pode gastar 2 Ações para ATRAVESSAR PODEROSO, balançando essa PARTE. Se fizer isso, todas as criaturas em seu CASCO sem VOAR devem gastar [A] Vigor ou cairão no Chão.",
       "se_quebrado": "Você fica Exposto e perde os Traços ARMADURA NATURAL e RECUO."
     },
     {
       "nome": "PÉS",
-      "durabilidade": null,
+      "durabilidade": 30,
       "alcance": "1 (GOLPEAR PODEROSO)",
       "passiva": "Você não pode atacar criaturas que estejam em seu CASCO com essa PARTE. Se você se Mover, deve Atacar qualquer criatura no Chão com essa PARTE sem gastar Ações.",
       "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano. Essa PARTE mantém seu efeito Passivo."

@@ -120,7 +120,7 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
     monstro.categoria = "Adulto"
     monstro.vigor_base = _to_int(dados.get("vigor_base") or 30, 30)
     monstro.vigor_atual = _to_int(dados.get("vigor_atual") or monstro.vigor_base, monstro.vigor_base)
-    monstro.historia = dados.get("historia")
+    monstro.historia = "Soon"
     monstro.comportamento = dados.get("comportamento")
     monstro.dieta = _texto_lista(dados.get("dieta"))
     monstro.habitat = _texto_lista(dados.get("habitat"))
@@ -205,21 +205,18 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
 
         nome_tecnica = parte_data.get("tecnica") or nome_parte
         tecnica_obj = await _buscar_por_nome(db, Tecnica, nome_tecnica)
+        
+        # Se a técnica não for encontrada no banco, ela é criada na hora
         if not tecnica_obj:
-            resultado_tec = await db.execute(select(Tecnica).order_by(Tecnica.id).limit(1))
-            tecnica_obj = resultado_tec.scalars().first()
-            if tecnica_obj:
-                print(
-                    f"  [AVISO] Técnica '{nome_tecnica}' não encontrada — usando "
-                    f"'{tecnica_obj.nome}' na parte '{nome_parte}'."
-                )
-
-        if not tecnica_obj:
-            print(
-                f"  [AVISO] Nenhuma Técnica cadastrada no banco para associar "
-                f"à parte '{nome_parte}' — pulando parte."
+            print(f"  [AVISO] Técnica '{nome_tecnica}' não encontrada no banco. Criando técnica genérica...")
+            tecnica_obj = Tecnica(
+                nome=nome_tecnica, 
+                descricao=f"Técnica automática gerada para a parte {nome_parte}"
             )
-            continue
+            db.add(tecnica_obj)
+            # O db.flush() é necessário para que o banco atribua um ID à nova técnica, 
+            # permitindo que ela seja relacionada com a MonstroParte logo a seguir.
+            await db.flush()
 
         monstro.partes.append(
             MonstroParte(
