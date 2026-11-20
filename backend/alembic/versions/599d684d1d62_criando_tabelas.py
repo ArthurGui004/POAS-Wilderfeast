@@ -1,19 +1,20 @@
 """criando_tabelas
 
-Revision ID: bc34cd384848
+Revision ID: 599d684d1d62
 Revises: 
-Create Date: 2026-11-19 07:59:51.825498
+Create Date: 2026-11-20 15:21:08.330888
 
 """
 from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+
 from app.enums import CategoriaMonstro
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'bc34cd384848'
+revision: str = '599d684d1d62'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -122,7 +123,7 @@ def upgrade() -> None:
     sa.Column('alcance', sa.String(length=50), nullable=True),
     sa.Column('durabilidade_max', sa.Integer(), nullable=False),
     sa.Column('durabilidade_atual', sa.Integer(), nullable=False),
-    sa.Column('se_quebrado', sa.Boolean(), nullable=True),
+    sa.Column('se_quebrado', sa.String(length=100), nullable=True),
     sa.ForeignKeyConstraint(['monstro_id'], ['monstro.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['tecnica_id'], ['tecnica.id'], ondelete='RESTRICT'),
     sa.PrimaryKeyConstraint('id')

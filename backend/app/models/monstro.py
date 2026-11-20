@@ -61,6 +61,6 @@ class MonstroParte(Base):
     alcance = Column(String(50))
     durabilidade_max = Column(Integer, nullable=False)
     durabilidade_atual = Column(Integer, nullable=False)
-    se_quebrado = Column(Boolean, default=False)
+    se_quebrado = Column(String(100), default=False)
     
     monstro = relationship("Monstro", back_populates="partes")

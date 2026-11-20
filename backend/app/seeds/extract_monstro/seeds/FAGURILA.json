@@ -1,5 +1,6 @@
 {
   "nome": "FAGURILA",
+  "categoria": "Adulto",
   "estilos": {
     "ligeiro": 1,
     "poderoso": 3,
@@ -52,22 +53,37 @@
     {
       "nome": "ESCALAR",
       "descricao": "(Passiva) Você pode escalar sem Desvantagem."
-    }
-  ],
-  "tracos_adicionais": [
+    },
     "BRINCALHÃO",
     "PROFESSOR"
   ],
-  "partes": [
+  "tecnicas": [
     {
       "nome": "PELOS",
-      "durabilidade": null,
+      "durabilidade": 20,
       "alcance": null,
-      "passiva": "Seu CORPO EM CHAMAS não causa Dano, a menos que você gaste 1 Ação para incendiá-lo. Cada vez que usar AMEAÇAR 2, aumente o Dano causado por CORPO EM CHAMAS em 1 até o final da Jornada ou até que essa PARTE seja Quebrada. Se você causar Dano a um feral com CORPO EM CHAMAS, o UTENSÍLIO dele fica Queimado.",
+      "descricao": "Seu CORPO EM CHAMAS não causa Dano, a menos que você gaste 1 Ação para incendiá-lo. Cada vez que usar AMEAÇAR 2, aumente o Dano causado por CORPO EM CHAMAS em 1 até o final da Jornada ou até que essa PARTE seja Quebrada. Se você causar Dano a um feral com CORPO EM CHAMAS, o UTENSÍLIO dele fica Queimado.",
       "se_quebrado": "Você perde CORPO EM CHAMAS."
+    },
+    {
+      "nome": "PUNHOS",
+      "durabilidade": 20,
+      "alcance": "1 (GOLPEAR PODEROSO ou GOLPEAR LIGEIRO)",
+      "descricao": "Se você conseguir Atacar uma criatura com essa PARTE, ela fica Presa.",
+      "se_quebrado": "Alcance: 1 (GOLPEAR PODEROSO). Essa PARTE causa metade do Dano."
     }
   ],
-  "comportamento": null,
-  "dieta": null,
-  "habitat": []
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a criatura que usou o Estilo PODEROSO na sua última rodada, já que você considera força uma ameaça. Seu instinto é agarrar qualquer desafiante e subjugá-lo, rugindo alto para que todas as testemunhas saibam que esse é seu território. Você pode manter múltiplas criaturas Presas em seus PUNHOS, mas tende a focar em esmerilhar o primeiro no soco antes de dar atenção para outro inimigo. Normalmente, você não inflama seus PELOS até que esteja Amedrontado ou Ferido — não por razões táticas, mas por ser um animal que não gasta recursos sem motivo. Quando fica em chamas, é hora de se apressar e terminar a luta de uma forma ou de outra. Cada vez que você bater no seu peito para AMEAÇAR, mais faíscas voam, e mais sua pelagem esquenta, até irromper em chamas.",
+  "historia": "Uma fera da Linhagem dos Churrasqueiros. Tem em média de 4 metros de altura.\n\nCom exceção dos gigantes, Fagurilas são os maiores símios encontrados na Terra Una. Fragmentos metálicos parecidos com lascas de pedra crescem nos nós dos dedos das suas mãos e escavam sulcos rasos no chão enquanto essas criaturas trotam em quatro patas. O pelo castanho-avermelhado da sua pelagem externa é longo e oleoso, e forma camadas desgrenhadas acima de uma pelagem interna, que, por sua vez, é macia e mais escura. Todos os fagurilas possuem papadas flácidas, mas os machos mais velhos também têm enormes bochechas proeminentes, conhecidas como flanges.\n\nEmbora sejam bons escaladores, apenas árvores grandes aguentam seu peso. Por isso, passam a maior parte de suas vidas no chão. Residem nas florestas das terras litorais — registros históricos indicam que uma distribuição muito mais ampla, mas hoje são encontrados apenas em bolsões, espalhados em pontos pela Condenação e Costa Sen. Nesses enclaves remanescentes, forrageiam em busca de frutas e folhas verdes, embora também se alimentam de cascas, cogumelos, caça e até mesmo carvões e cinzas em períodos de seca. Múltiplos fagurilas reunidos em uma área certamente acabariam com a vegetação comestível muito rápido, por isso são grandes solitários. As mães cuidam das crianças por pelo menos uma década, e adolescentes costumam formar pequenos grupos cooperativos, mas qualquer outro tipo de contato específico é motivo de tensão.\n\nE se não for possível evitar, a agressão vem. Fagurilas iniciam um conflito rosnando e mostrando seus dentes um para o outro; logo em seguida, assumem uma postura ereta e começam a bater no próprio peito. Se nenhum dos lados recuar, o bater intensifica-se em um movimento que faz com que as estruturas metálicas em seus punhos se choquem umas nas outras e produzam faíscas. Então, a pelagem exterior dos monstros incendeia-se e ele se torna uma besta furiosa e barulhenta, ardendo em chamas que servem tanto para destruir quanto para proteger.\n\nApesar disso, por mais estranho que possa parecer, a autoimolação é mais utilizada para evitar confrontos do que vencê-los. Fagurilas têm muita proteção natural contra suas próprias chamas — conseguem acumular ar em suas papadas para respirar enquanto a fumaça proveniente da queima dos pelos sobe. Os pelos da camada inferior também não queimam tão fácil quanto os da camada exterior — mas os fagurilas se esforçam para machucar seus rivais mesmo depois de já terem inflamado seus corpos, o que os transforma em armaduras em chamas. Assim, a pelagem que queimar primeiro deixará um deles em clara desvantagem, e a mera postura pode decidir um vencedor antes que qualquer um dos indivíduos recorra à violência, já que isso pode custar caro.\n\nQuando está perto de outras espécies, o fagurila é tímido e gentil. Os símios só são vulneráveis a predadores durante a sua juventude, pois ainda não atingiram o seu pleno crescimento. Mesmo assim, a ameaça de combustão espontânea é suficiente para afastar a maioria dos caçadores.",
+  "dieta": [
+    "Monstros terrestres",
+    "ovos de Wari",
+    "folhagem Broto de Ervafumo",
+    "fruta Falso Pêssego Che, Cerejasca",
+    "fungos Cogumelo Olho-de-Siri"
+  ],
+  "habitat": [
+    "Arvoredo (Jardins Ghao Gan, Bosque das Testemunhas)",
+    "Montanha (Antigo Sen Che, Bosque da Ervafumo)"
+  ]
 }

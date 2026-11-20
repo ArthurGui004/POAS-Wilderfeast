@@ -1,5 +1,6 @@
 {
   "nome": "HAGSECHU",
+  "categoria": "Adulto",
   "estilos": {
     "ligeiro": 0,
     "poderoso": 2,
@@ -24,38 +25,60 @@
       "valor": 1
     }
   ],
-  "tracos": [],
-  "tracos_adicionais": [
-    "CAMUFLAGEM. (Custo: 1 Sucesso SAGAZ) Você fica Escondido.",
-    "ESCAVAR 2. (Passiva) Você pode cavar. Além disso, ao se Mover enquanto estiver cavando, Mova-se 2 Pernadas em vez de 1.",
-    "PACIÊNCIA. (Passiva) Você pode preparar 3 vezes por turno.",
-    "PREDADOR DE EMBOSCADA. (Passiva) Se você Atacar enquanto estiver Escondido, causa o dobro de Dano.",
-    "SOPRO DE FOGO. (Custo: 2 Ações) Faça um ATIRAR PODEROSO contra uma criatura a até 2 Pernadas. Se acertar, causa [A] de Dano à Parte e a PARTE que alvejada fica Queimada."
+  "tracos": [
+    {
+      "nome": "CAMUFLAGEM",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Você fica Escondido."
+    },
+    {
+      "nome": "ESCAVAR 2",
+      "descricao": "(Passiva) Você pode cavar. Além disso, ao se Mover enquanto estiver cavando, Mova-se 2 Pernadas em vez de 1."
+    },
+    {
+      "nome": "PACIÊNCIA",
+      "descricao": "(Passiva) Você pode preparar 3 vezes por turno."
+    },
+    {
+      "nome": "PREDADOR DE EMBOSCADA",
+      "descricao": "(Passiva) Se você Atacar enquanto estiver Escondido, causa o dobro de Dano."
+    },
+    {
+      "nome": "SOPRO DE FOGO",
+      "descricao": "(Custo: 2 Ações) Faça um ATIRAR PODEROSO contra uma criatura a até 2 Pernadas. Se acertar, causa [A] de Dano à Parte e a PARTE que alvejada fica Queimada."
+    },
+    "MIGRADOR",
+    "SACRIFÍCIO PARENTAL"
   ],
-  "partes": [
+  "tecnicas": [
     {
       "nome": "CASCA",
-      "durabilidade": null,
+      "durabilidade": 20,
       "alcance": null,
-      "passiva": "Suas PARTES não podem ser Queimadas.",
+      "descricao": "Suas PARTES não podem ser Queimadas.",
       "se_quebrado": "Você perde SOPRO DE FOGO."
     },
     {
       "nome": "CAUDA",
-      "durabilidade": null,
+      "durabilidade": 20,
       "alcance": null,
-      "passiva": "Você tem Vantagem para usar SOPRO DE FOGO em uma criatura que estiver Presa.",
+      "descricao": "Você tem Vantagem para usar SOPRO DE FOGO em uma criatura que estiver Presa.",
       "se_quebrado": "Você perde SOPRO DE FOGO."
     },
     {
       "nome": "PERNAS",
-      "durabilidade": null,
+      "durabilidade": 20,
       "alcance": "1 (GOLPEAR SAGAZ)",
-      "passiva": "Se você conseguir Atacar uma criatura com essa PARTE, ela fica Presa.",
+      "descricao": "Se você conseguir Atacar uma criatura com essa PARTE, ela fica Presa.",
       "se_quebrado": "Alcance: 1 (GOLPEAR SAGAZ). Essa PARTE causa metade do Dano."
     }
   ],
-  "comportamento": null,
-  "dieta": null,
-  "habitat": []
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, escolha a última criatura que se moveu no Chão, pois o ritmo dos passos sempre atrai sua atenção. Seu instinto é esperar o quanto for para pegar uma criatura que passe sobre você. Construa suas ações com PACIÊNCIA, em seguida, saia do seu esconderijo no Subterrâneo partindo para cima com suas PERNAS de predador. Lembre-se de que SOPRO DE FOGO é um Traço que não tem as mesmas limitações de quando você ataca — você pode usá-lo repetidas vezes, desde que haja Ações para gastar. A menos que existam circunstâncias especiais, você sempre começa A Caçada no Subterrâneo e Escondido.",
+  "historia": "Um monstro da Linhagem dos Churrasqueiros. Tem 5 metros de comprimento em média, incluindo a cauda.\n\nOs meus colegas do Cartel costumavam me criticar por antropomorfizar os espécimes que estudo, uma acusação da qual ainda devo admitir culpa. Mesmo em relação ao indecifrável hagsechu, repeti esse erro. Sim, as suas características são totalmente aracnídeas e o seu comportamento só se explica pelas motivações primordiais de fome, sobrevivência e reprodução — as quais considero ainda mais estranhas quando removidas do contexto humano. Porém, mesmo nessas criaturas é possível reconhecer qualidades favoráveis, e continuo tão dedicada à preservação do hagsechu quanto à de qualquer outro monstro na história.\n\nPredador de tocaias, o hagsechu passa a maior parte da vida enterrado de cabeça para baixo. Quando sente tremores por cima dele, aciona sua armadilha: todas as oito pernas se fecham, prendendo a vítima ao seu tórax, enquanto sua cauda arqueia-se do chão e dispara fogo de um bulbo que poderia ser confundido com um ferrão. Por esse motivo, o hagsechu também é conhecido como aranha-forninho, embora, com sua cauda e patas dianteiras enormes — construídas para cavar e varrer areia —, isso o torne uma aranha de fato esquisita. Se tiver sucesso, o hagsechu pode comer sua presa bem tostada à vontade, e só em raras vezes, com um movimento rápido e oscilante para ficar ereto, ele reposiciona-se.\n\nOs hagsechus adultos são nativos dos cerrados de Chamigsia, mas poucos nascem no deserto. Em vez disso, quando chega a hora da desova, os hagsechus férteis iniciam uma longa e estranha migração. Através das cavernas sob as montanhas Lakkarakku, eles percorrem caminhos subterrâneos trilhados pelas gerações anteriores, até emergirem nas florestas retorcidas de Towon Seha. Lá eles acasalam, botam ovos aos milhares e depois morrem. Nenhum hagsechu sobrevive para fazer a viagem de volta — e como não chamar de amor o trabalho de um genitor que dá tudo aos filhos que nunca conhecerá?\n\nEsses ovos podem permanecer enterrados e latentes por décadas. Eles não eclodem até serem expostos ao calor escaldante das queimadas regulares do Bosque Retorcido. Onde podemos ver apenas uma desolação cinzenta, os filhotes de hagsechu encontram um ambiente onde têm as melhores chances possíveis de sobreviver. Seus predadores são ausentes, eles queimaram muitos cadáveres para alimentar-se e, à medida que ganham peso, o solo carbonizado e solto torna-se um excelente substrato, no qual podem aprender a cavar e caçar. O crescimento da floresta, na realidade, afasta os hagsechus, e eles instintivamente refazem os passos de seus pais ao dirigirem-se para o norte, pelo subterrâneo, em direção ao deserto. Lá, trocam sua casca jovem e seus exoesqueletos adquirem o brilho à prova de fogo característico de sua espécie.",
+  "dieta": [
+    "Monstros terrestres (Cauda de Rakuzar, Lapuni Selvagem)"
+  ],
+  "habitat": [
+    "Arvoredo (Terras Chafurdantes, Bosque das Testemunhas)",
+    "Deserto"
+  ]
 }

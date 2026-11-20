@@ -1,0 +1,83 @@
+{
+  "nome": "GELARANHA ASIG",
+  "categoria": "Adulto",
+  "estilos": {
+    "ligeiro": 0,
+    "poderoso": 0,
+    "preciso": 3,
+    "sagaz": 2
+  },
+  "habilidades": [
+    {
+      "nome": "ARMAZENAR",
+      "valor": 3
+    },
+    {
+      "nome": "ESTUDAR",
+      "valor": 2
+    },
+    {
+      "nome": "GOLPEAR",
+      "valor": 1
+    },
+    {
+      "nome": "MANUFATURAR",
+      "valor": 3
+    }
+  ],
+  "tracos": [
+    {
+      "nome": "CAMUFLAGEM",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Você fica Escondido."
+    },
+    {
+      "nome": "LADRÃO",
+      "descricao": "(Custo: 1 Sucesso SAGAZ) Roube um Ingrediente, um Lanche ou uma criatura Presa de um alvo que esteja a até 1 Pernada de você. (Você escolhe se a criatura Presa roubada por você agora está Presa por você ou livre.)"
+    },
+    {
+      "nome": "PACIÊNCIA",
+      "descricao": "(Passiva) Você pode preparar 3 vezes por turno."
+    },
+    {
+      "nome": "SENTIDOS AGUÇADOS",
+      "descricao": "(Custo: 1 Sucesso PRECISO) Uma criatura a sua escolha fica Exposta."
+    },
+    {
+      "nome": "TECE-TEIAS",
+      "descricao": "(Custo: 2 Ações) Faça um MANUFATURAR SAGAZ. Se passar, a próxima vez que uma criatura hostil se Mover em sua direção, ela sofrerá [A] Dano à Parte e não pode se Mover até o início do próximo turno."
+    },
+    "CONSTRUTOR DE NINHOS"
+  ],
+  "tecnicas": [
+    {
+      "nome": "PELOS",
+      "durabilidade": 10,
+      "alcance": null,
+      "descricao": "Você pode gastar 1 Sucesso em um MANUFATURAR para usar SENTIDOS AGUÇADOS.",
+      "se_quebrado": "Você perde SENTIDOS AGUÇADOS."
+    },
+    {
+      "nome": "PERNAS",
+      "durabilidade": 20,
+      "alcance": "1 (GOLPEAR PRECISO)",
+      "descricao": null,
+      "se_quebrado": "Alcance: 1 (GOLPEAR PRECISO). Essa PARTE causa metade do Dano."
+    },
+    {
+      "nome": "TEIA",
+      "durabilidade": 1,
+      "alcance": null,
+      "descricao": "Cada vez que você usa TECE-TEIAS, crie uma nova instância dessa PARTE com sua própria Durabilidade separada. Criaturas que sofrem Dano à Parte do TECE-TEIAS também ficam Presas por essa PARTE, mas não são puxadas para 0 Pernada na sua direção. Criaturas podem Atacar essa PARTE de qualquer distância, mas se o fizeram, você não perde Vigor.",
+      "se_quebrado": "A instância de TECE-TEIAS representada por essa PARTE acaba."
+    }
+  ],
+  "comportamento": "Se nenhuma criatura estiver Presa ou Exposta, mire a última criatura que atacou sua TEIA, já que você prefere manter suas armadilhas de teia intactas. Seu instinto é preparar sua armadilha de teia e esperar pacientemente no seu centro. Se estiver confusa sobre como sua TEIA funciona, faça o que fizer sentido narrativamente falando.",
+  "historia": "Um monstro da Linhagem dos Amontoeiros. Tem 4 metros de altura.\n\nPara cada espécie de monstro que podemos nomear, quantas outras desconhecidas devem existir? Dezenas? Centenas? A variedade da vida é inestimável; nós não sabemos o quanto não sabemos.\n\nAs Gelaranhas Asig já estiveram entre essas massas desconhecidas e, até certo ponto, ainda estão. A humanidade não sabia nada da sua existência até pouco menos de trinta anos, quando Asig Hyotun, um Chamsen filho de um transportador de água, subiu ao Monte Zayyat e as observou pela primeira vez. Hyotun não era acadêmico nem feral — em suas próprias palavras, ele era um caçador de tesouros itinerante e sem rumo, buscando os pêssegos da imortalidade do Antigo Sen Che, principalmente por prazer. Mas então, ele encontrou propósito. Suas observações sobre as Gelaranhas Asig são a base de todo o nosso conhecimento sobre a espécie, e o próprio Hyotun agora leciona na Academia Nin Tai Chat.\n\nEste monstro enigmático é endêmico das florestas congeladas de Lakkarakku. Esgueira-se na vegetação, com suas pernas longas e seu exoesqueleto com textura de casca de árvore disfarçando-o entre os troncos finos, tecendo fios de seda esticada que são quase invisíveis contra o fundo de neve branca. Então, acomoda-se no centro da sua teia estendida pela floresta, mantendo-se imóvel a ponto de formar-se gelo na parte inferior do seu abdômen. Mesmo a mais leve vibração é suficiente para chamar sua atenção, e os que caem na teia — geralmente caça de pequeno a médio porte, como woodas, bezerros myotak ou humanos — ficam indefesos quando o caçador silencioso chega, sem desperdiçar nenhum movimento enquanto garante o abate.\n\nGelaranhas Asig raramente consomem suas presas de imediato. Em vez disso, embrulham os alimentos em seda e os amontoam em despensas no centro de suas teias. O racionamento cuidadoso é necessário para que as Gelaranhas Asig sobrevivam às condições frias e secas nos picos do Lakkarakku, e o envoltório de seda não apenas preserva suas presas, mas também retarda ladrões, necrófagos e até atrai parceiros em potencial. Um presente nupcial oportuno é essencial para um macho acasalar com uma fêmea sem ser devorado. Alguns machos são espertos o suficiente para presentear as fêmeas com detritos embrulhados em seda, o que as distraem por tempo suficiente para o macho acasalar e depois fugir. Gerados de forma honesta ou não, os filhotes de gelaranha permanecem sob a proteção da mãe por algumas semanas após a eclosão dos ovos, embora só se alimentem com as sobras das presas.\n\nDe acordo com Asig Hyotun, ele não pretendia dar o seu próprio nome às gelaranhas. Em vez disso, deu o nome do seu clã como forma de adoção simbólica, pois havia passado tanto tempo na companhia das criaturas que as considerava parte da família. Estamos conectados a todos os monstros da Terra Una, nomeando-os ou não — e só conseguiremos enriquecer essa relação se nos aprofundarmos com compreensão!",
+  "dieta": [
+    "Monstros terrestres (Geleca de Onagung, Wooda Selvagem)",
+    "monstros voadores"
+  ],
+  "habitat": [
+    "Montanha (Antigo Sen Che)"
+  ]
+}
