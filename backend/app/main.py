@@ -1,22 +1,23 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
 from app.config import settings
-from app.seeds.seed_condicao import criar_condicoes_padrao
-from app.seeds.seed_estilo import criar_estilos_padrao
-from app.seeds.seed_habilidade import criar_habilidades_padrao
-from app.seeds.seed_tracos import pipeline_criar_tracos
-from app.seeds.seed_monstro import criar_monstros_padrao
+from app.database import engine
+from app.preparar_banco import preparar_banco
 from app.routers import auth_router, feral_router, monstro_router
+from app.routers.equipamento import router as equipamento_router
+from app.routers.imagens import router as imagens_router
+
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
-    await criar_condicoes_padrao()
-    await criar_estilos_padrao()
-    await criar_habilidades_padrao()
-    await pipeline_criar_tracos()
-    await criar_monstros_padrao()
-    yield
+async def lifespan(_app: FastAPI):
+    try:
+        await preparar_banco()
+        yield
+    finally:
+        await engine.dispose()
+
 
 app = FastAPI(
     title="Wilderfeast API",
@@ -36,6 +37,8 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(feral_router)
 app.include_router(monstro_router)
+app.include_router(equipamento_router)
+app.include_router(imagens_router)
 
 
 @app.get("/")

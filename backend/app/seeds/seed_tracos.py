@@ -1,6 +1,7 @@
 import asyncio
 import re
-import pymupdf
+from pathlib import Path
+import pypdfium2
 from sqlalchemy import select
 
 # Ajuste os imports abaixo caso os ficheiros estejam noutras diretorias
@@ -9,17 +10,17 @@ from app.models.catalogos import Traco
 from app.schemas.catalogos_enums import TracoCreate
 
 def extrair_tracos_do_pdf(caminho_pdf: str) -> list[TracoCreate]:
-    """Lê o PDF com PyMuPDF e extrai os traços utilizando expressões regulares."""
-    padrao = re.compile(r'^[•\s]*([A-ZÇÃÕÁÉÍÓÚÂÊÔ\s0-9]+?)\s*(?:->|→)?\s*(\(.*)')
+    """Lê os nomes e descrições do catálogo de traços."""
+    padrao = re.compile(r'^[•\s]*([A-ZÀ-Ý\s0-9-]+?)\s*(?:->|→)?\s*(\(.*)')
     tracos_extraidos = []
     
     # Abre o documento ignorando erros estruturais de fontes
-    with pymupdf.open(caminho_pdf) as pdf:
+    with pypdfium2.PdfDocument(caminho_pdf) as pdf:
         nome_atual = None
         descricao_atual = ""
 
         for pagina in pdf:
-            texto = pagina.get_text()
+            texto = pagina.get_textpage().get_text_bounded()
             if not texto:
                 continue
                 
@@ -27,7 +28,7 @@ def extrair_tracos_do_pdf(caminho_pdf: str) -> list[TracoCreate]:
                 linha = linha.strip()
                 
                 # Ignora cabeçalhos, rodapés vazios ou números isolados
-                if not linha or linha == "TRAÇOS" or linha.isdigit():
+                if not linha or re.fullmatch(r"TRAÇOS(?: \d+)?|\d+", linha):
                     continue
                     
                 match = padrao.match(linha)
@@ -47,7 +48,7 @@ def extrair_tracos_do_pdf(caminho_pdf: str) -> list[TracoCreate]:
     return tracos_extraidos
 
 
-async def criar_tracos_padrao(tracos: list[TracoCreate]):
+async def criar_tracos_padrao(tracos: list[TracoCreate], *, preencher_apenas: bool = False):
     async with AsyncSessionLocal() as db:
         resultado = await db.execute(select(Traco))
         existentes = {t.nome.strip().upper(): t for t in resultado.scalars().all()}
@@ -64,7 +65,7 @@ async def criar_tracos_padrao(tracos: list[TracoCreate]):
                 db.add(novo_traco)
                 existentes[nome_upper] = novo_traco
                 inseridos += 1
-            else:
+            elif not preencher_apenas or not (traco_db.descricao or "").strip():
                 traco_db.descricao = item.descricao
                 atualizados += 1
 
@@ -72,16 +73,17 @@ async def criar_tracos_padrao(tracos: list[TracoCreate]):
         print(f"Base de dados atualizada: {inseridos} inseridos, {atualizados} atualizados.")
 
 
-async def pipeline_criar_tracos():
+async def pipeline_criar_tracos(*, preencher_apenas: bool = False):
     print("A extrair dados do PDF...")
-    lista_tracos = extrair_tracos_do_pdf("app/seeds/extract_tracos/docs/Traços.pdf")
+    caminho = Path(__file__).parent / "extract_tracos" / "docs" / "Traços.pdf"
+    lista_tracos = extrair_tracos_do_pdf(str(caminho))
     
     if not lista_tracos:
         print("Nenhum traço encontrado no documento.")
-        return
+        return 1
 
     print(f"Foram encontrados {len(lista_tracos)} traços. A guardar na base de dados...")
-    await criar_tracos_padrao(lista_tracos)
+    await criar_tracos_padrao(lista_tracos, preencher_apenas=preencher_apenas)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Table
+from sqlalchemy import CheckConstraint, Column, Integer, String, Text, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from app.models.condicao import feral_condicao
 from app.database import Base
@@ -40,6 +40,18 @@ class Feral(Base):
     habilidades = relationship("FeralHabilidade", back_populates="feral", cascade="all, delete-orphan")
     tracos = relationship("Traco", secondary=feral_traco_assoc)
     inventario = relationship("FeralInventario", back_populates="feral", cascade="all, delete-orphan")
+    itens_encontrados = relationship("ItemEncontrado", cascade="all, delete-orphan")
+
+
+class ItemEncontrado(Base):
+    __tablename__ = "feral_item_encontrado"
+    __table_args__ = (CheckConstraint("quantidade > 0", name="ck_item_encontrado_quantidade"),)
+
+    id = Column(Integer, primary_key=True)
+    feral_id = Column(Integer, ForeignKey("feral.id", ondelete="CASCADE"), nullable=False, index=True)
+    nome = Column(String(100), nullable=False)
+    quantidade = Column(Integer, nullable=False)
+    descricao = Column(Text)
 
 
 # Classes de Associação com colunas extras

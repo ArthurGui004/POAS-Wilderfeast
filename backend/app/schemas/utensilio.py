@@ -13,6 +13,8 @@ class UtensilioCreate(UtensilioBase):
 
 class UtensilioResponse(UtensilioBase):
     id: int
+    estilos_principais: tuple[str, str] | None = None
+    imagem_url: str | None = None
     model_config = ConfigDict(from_attributes=True)
 
 

@@ -1,5 +1,5 @@
 # schemas/feral.py
-from pydantic import BaseModel, ConfigDict
+from pydantic import AliasPath, BaseModel, ConfigDict, Field, PositiveInt
 from typing import Optional
 
 class FeralBase(BaseModel):
@@ -20,9 +20,18 @@ class FeralBase(BaseModel):
     conexao: Optional[str] = None
 
 class FeralCreate(FeralBase):
-    usuario_id: int
+    utensilio_id: PositiveInt
 
 class FeralResponse(FeralBase):
     id: int
     usuario_id: int
     model_config = ConfigDict(from_attributes=True)
+
+
+class ItemDaFicha(BaseModel, from_attributes=True):
+    id: int
+    nome: str = Field(validation_alias=AliasPath("utensilio", "nome"))
+
+
+class FeralDetalhado(FeralResponse):
+    inventario: list[ItemDaFicha]

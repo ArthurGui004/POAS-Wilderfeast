@@ -4,14 +4,18 @@ from typing import List
 from app.database import get_db
 from app.deps import get_current_user
 from app.models import Usuario
-from app.schemas import FeralBase, FeralResponse
+from app.schemas import FeralBase, FeralCreate, FeralResponse
+from app.schemas.feral import FeralDetalhado
 from app.crud import crud_feral
 
 router = APIRouter(prefix="/feral", tags=["Feral"])
 
 @router.post("/", response_model=FeralResponse, status_code=status.HTTP_201_CREATED)
-async def criar_feral(feral: FeralBase, usuario_atual: Usuario = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
-    return await crud_feral.criar_feral(db, feral, usuario_atual.id)
+async def criar_feral(feral: FeralCreate, usuario_atual: Usuario = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
+    ficha = await crud_feral.criar_feral(db, feral, usuario_atual.id)
+    if ficha is None:
+        raise HTTPException(status_code=422, detail="Escolha um utensílio disponível no catálogo inicial.")
+    return ficha
 
 
 @router.get("/meus", response_model=List[FeralResponse])
@@ -19,9 +23,9 @@ async def listar_meus_ferais(usuario_atual: Usuario = Depends(get_current_user),
     return await crud_feral.listar_ferais_por_usuario(db, usuario_atual.id)
 
 
-@router.get("/{feral_id}", response_model=FeralResponse)
+@router.get("/{feral_id}", response_model=FeralDetalhado)
 async def obter_feral(feral_id: int, usuario_atual: Usuario = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
-    feral = await crud_feral.obter_feral_por_id(db, feral_id, usuario_atual.id)
+    feral = await crud_feral.obter_feral_por_id(db, feral_id, usuario_atual.id, com_inventario=True)
     if not feral:
         raise HTTPException(status_code=404, detail="Feral não encontrado.")
     return feral

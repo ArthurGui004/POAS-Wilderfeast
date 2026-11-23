@@ -1,4 +1,5 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import AliasPath, BaseModel, ConfigDict, Field
+from app.schemas.catalogos_enums import TecnicaResponse, TracoResponse
 from typing import Optional
 from app.enums import CategoriaMonstro 
 
@@ -19,6 +20,8 @@ class MonstroCreate(MonstroBase):
 
 class MonstroResponse(MonstroBase):
     id: int
+    comportamento: str | None = None
+    imagem_url: str | None = None
     model_config = ConfigDict(from_attributes=True)
 
 
@@ -28,7 +31,7 @@ class MonstroParteBase(BaseModel):
     alcance: Optional[str] = None
     durabilidade_max: int
     durabilidade_atual: int
-    se_quebrado: bool = False
+    se_quebrado: str | None = None
 
 class MonstroParteCreate(MonstroParteBase):
     monstro_id: int
@@ -39,3 +42,21 @@ class MonstroParteResponse(MonstroParteBase):
     monstro_id: int
     tecnica_id: int
     model_config = ConfigDict(from_attributes=True)
+    tecnica: TecnicaResponse
+
+
+class EstiloDaFera(BaseModel, from_attributes=True):
+    nome: str = Field(validation_alias=AliasPath("estilo", "nome"))
+    pontos: int | None
+
+
+class HabilidadeDaFera(BaseModel, from_attributes=True):
+    nome: str = Field(validation_alias=AliasPath("habilidade", "nome"))
+    pontos: int | None
+
+
+class MonstroDetalhado(MonstroResponse):
+    estilos: list[EstiloDaFera]
+    habilidades: list[HabilidadeDaFera]
+    tracos: list[TracoResponse]
+    partes: list[MonstroParteResponse]

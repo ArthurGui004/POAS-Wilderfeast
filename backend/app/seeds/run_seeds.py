@@ -10,9 +10,11 @@ import asyncio
 import sys
 
 from app.database import engine
+from app.seeds.revisar_bestiario import revisar_bestiario
 from app.seeds.seed_condicao import criar_condicoes_padrao
 from app.seeds.seed_estilo import criar_estilos_padrao
 from app.seeds.seed_habilidade import criar_habilidades_padrao
+from app.seeds.seed_imagens_catalogo import preencher_imagens_catalogo
 from app.seeds.seed_monstro import criar_monstros_padrao
 from app.seeds.seed_tracos import pipeline_criar_tracos
 
@@ -21,7 +23,9 @@ ETAPAS = [
     ("Estilos", criar_estilos_padrao),
     ("Habilidades", criar_habilidades_padrao),
     ("Traços", pipeline_criar_tracos),
-    # ("Monstros", criar_monstros_padrao),
+    ("Monstros", criar_monstros_padrao),
+    ("Revisão do Bestiário", revisar_bestiario),
+    ("Imagens do catálogo", preencher_imagens_catalogo),
     ("Condições", criar_condicoes_padrao),
 ]
 

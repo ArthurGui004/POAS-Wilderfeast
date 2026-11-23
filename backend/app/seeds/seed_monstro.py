@@ -29,7 +29,7 @@ from app.models import (
     Tecnica,
 )
 
-DIR_SEEDS_PADRAO = Path("app/seeds/extract_monstro/seeds")
+DIR_SEEDS_PADRAO = Path(__file__).parent / "extract_monstro" / "seeds"
 
 
 # ==========================================
@@ -67,7 +67,8 @@ async def _buscar_por_nome(db: AsyncSession, modelo, nome: str):
     não sejam tratados como curingas.
     """
     resultado = await db.execute(
-        select(modelo).where(func.lower(modelo.nome) == str(nome).strip().lower()).limit(1)
+        select(modelo).where((modelo.nome == nome.strip().upper()) |
+                             (func.lower(modelo.nome) == nome.strip().lower())).limit(1)
     )
     return resultado.scalars().first()
 
@@ -117,10 +118,10 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
         db.add(monstro)
 
     # Atributos básicos
-    monstro.categoria = "Adulto"
+    monstro.categoria = _parse_categoria(dados.get("categoria") or "Adulto")
     monstro.vigor_base = _to_int(dados.get("vigor_base") or 30, 30)
     monstro.vigor_atual = _to_int(dados.get("vigor_atual") or monstro.vigor_base, monstro.vigor_base)
-    monstro.historia = "Soon"
+    monstro.historia = dados.get("historia")
     monstro.comportamento = dados.get("comportamento")
     monstro.dieta = _texto_lista(dados.get("dieta"))
     monstro.habitat = _texto_lista(dados.get("habitat"))
@@ -161,7 +162,7 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
         if not nome_hab:
             continue
 
-        hab_obj = await _buscar_por_nome(db, Habilidade, nome_hab)
+        hab_obj = await _buscar_por_nome(db, Habilidade, "ARMAZENAR" if nome_hab == "ARAMAZENAR" else nome_hab)
         if not hab_obj:
             print(f"  [AVISO] Habilidade '{nome_hab}' não encontrada no banco — pulando.")
             continue
@@ -171,27 +172,25 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
         monstro.habilidades.append(MonstroHabilidade(habilidade=hab_obj, pontos=pontos_hab))
 
     # Traços (N:N)
-    nomes_tracos = []
-    for t in _lista(dados.get("tracos")):
-        if isinstance(t, dict) and t.get("nome"):
-            nomes_tracos.append(t["nome"])
-        elif isinstance(t, str) and t:
-            nomes_tracos.append(t)
-    for t_adj in _lista(dados.get("tracos_adicionais")):
-        if isinstance(t_adj, str) and t_adj:
-            nomes_tracos.append(t_adj)
-
     novos_tracos = []
-    for nome_t in nomes_tracos:
+    for traco in _lista(dados.get("tracos")) + _lista(dados.get("tracos_adicionais")):
+        if isinstance(traco, dict):
+            nome_t, descricao = traco.get("nome"), traco.get("descricao")
+        else:
+            nome_t, _, descricao = str(traco).partition(".")
+        if not nome_t:
+            continue
+        nome_t = nome_t.strip().rstrip(".")
         traco_obj = await _buscar_por_nome(db, Traco, nome_t)
         if not traco_obj:
-            print(f"  [AVISO] Traço '{nome_t}' não encontrado no banco — pulando.")
-        elif traco_obj not in novos_tracos:
+            traco_obj = Traco(nome=nome_t, descricao=descricao.strip() if descricao else None)
+            db.add(traco_obj)
+        if traco_obj not in novos_tracos:
             novos_tracos.append(traco_obj)
     monstro.tracos = novos_tracos
 
     # Partes
-    for parte_data in _lista(dados.get("partes")):
+    for parte_data in _lista(dados.get("partes") or dados.get("tecnicas")):
         if not isinstance(parte_data, dict):
             continue
         nome_parte = parte_data.get("nome")
@@ -204,15 +203,12 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
         alcance = parte_data.get("alcance")
 
         nome_tecnica = parte_data.get("tecnica") or nome_parte
-        tecnica_obj = await _buscar_por_nome(db, Tecnica, nome_tecnica)
-        
-        # Se a técnica não for encontrada no banco, ela é criada na hora
+        descricao = parte_data.get("passiva") or parte_data.get("descricao")
+        tecnica_obj = await db.scalar(select(Tecnica).where(
+            Tecnica.nome == nome_tecnica, Tecnica.descricao == descricao
+        ).limit(1))
         if not tecnica_obj:
-            print(f"  [AVISO] Técnica '{nome_tecnica}' não encontrada no banco. Criando técnica genérica...")
-            tecnica_obj = Tecnica(
-                nome=nome_tecnica, 
-                descricao=f"Técnica automática gerada para a parte {nome_parte}"
-            )
+            tecnica_obj = Tecnica(nome=nome_tecnica, descricao=descricao)
             db.add(tecnica_obj)
             # O db.flush() é necessário para que o banco atribua um ID à nova técnica, 
             # permitindo que ela seja relacionada com a MonstroParte logo a seguir.
@@ -225,7 +221,7 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
                 alcance=str(alcance) if alcance is not None else None,
                 durabilidade_max=dur_max,
                 durabilidade_atual=dur_atual,
-                se_quebrado=bool(parte_data.get("se_quebrado")),
+                se_quebrado=parte_data.get("se_quebrado"),
             )
         )
 
@@ -240,7 +236,7 @@ async def seed_monstro(db: AsyncSession, dados: dict) -> None:
 # ==========================================
 # Fluxo principal
 # ==========================================
-async def criar_monstros_padrao(dir_seeds: Optional[Path] = None) -> int:
+async def criar_monstros_padrao(dir_seeds: Optional[Path] = None, *, somente_novos: bool = False) -> int:
     """Retorna o número de erros ocorridos (0 = tudo certo)."""
     dir_seeds = dir_seeds or DIR_SEEDS_PADRAO
 
@@ -252,10 +248,18 @@ async def criar_monstros_padrao(dir_seeds: Optional[Path] = None) -> int:
         arquivos_json = [dir_seeds]
     else:
         arquivos_json = sorted(dir_seeds.glob("*.json"))
+        if dir_seeds == DIR_SEEDS_PADRAO:
+            arquivos_json.extend(sorted(p for p in (dir_seeds.parent / "docs").glob("*.json")
+                                        if not p.name.startswith(".")))
 
     if not arquivos_json:
         print(f"Nenhum arquivo .json encontrado na pasta '{dir_seeds}'.")
-        return 0
+        return 1
+
+    existentes = set()
+    if somente_novos:
+        async with AsyncSessionLocal() as db:
+            existentes = {_normalizar(nome) for nome in await db.scalars(select(Monstro.nome))}
 
     print(f"🌱 Encontrados {len(arquivos_json)} arquivo(s) JSON de monstros...\n")
 
@@ -266,9 +270,13 @@ async def criar_monstros_padrao(dir_seeds: Optional[Path] = None) -> int:
         print(f"📄 Processando seed: {arquivo_path.name}...")
         try:
             dados = json.loads(arquivo_path.read_text(encoding="utf-8"))
+            nome = _normalizar(dados.get("nome", ""))
+            if somente_novos and nome in existentes:
+                continue
             # Uma sessão por arquivo: se falhar, o rollback é automático ao fechar.
             async with AsyncSessionLocal() as db:
                 await seed_monstro(db, dados)
+            existentes.add(nome)
             sucesso_count += 1
         except Exception as e:
             erro_count += 1

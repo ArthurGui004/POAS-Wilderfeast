@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
 from app.database import get_db
 from app.schemas import MonstroResponse
+from app.schemas.monstro import MonstroDetalhado
 from app.crud import crud_monstro
 
 
@@ -14,7 +15,7 @@ async def listar_todos_monstros(db: AsyncSession = Depends(get_db)):
     return await crud_monstro.listar_monstros(db)
 
 
-@router.get("/{monstro_id}", response_model=MonstroResponse)
+@router.get("/{monstro_id}", response_model=MonstroDetalhado)
 async def obter_monstro_por_id(monstro_id: int, db: AsyncSession = Depends(get_db)):
     monstro = await crud_monstro.obter_monstro_por_id(db, monstro_id)
     if not monstro:
